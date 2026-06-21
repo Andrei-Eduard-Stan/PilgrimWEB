@@ -1,0 +1,50 @@
+[
+  {
+    "id": "windows-infrastructure",
+    "title": "Windows Infrastructure Pilgrimage",
+    "icon": "server",
+    "subtitle": "Windows identity, networking, endpoint management, and virtualisation",
+    "difficulty": "Intermediate",
+    "estimatedTime": "3-6 months",
+    "techStack": [
+      "Windows Server",
+      "Active Directory",
+      "DNS",
+      "DHCP",
+      "Group Policy",
+      "PowerShell",
+      "Entra ID",
+      "Intune",
+      "SCCM",
+      "Hyper-V"
+    ],
+    "learningPath": [
+      {
+        "phase": "Phase 1",
+        "items": ["AZ-800", "AZ-801"]
+      },
+      {
+        "phase": "Phase 2",
+        "items": ["AZ-104"]
+      },
+      {
+        "phase": "Phase 3",
+        "items": ["MD-102"]
+      }
+    ],
+    "project": {
+      "name": "Mini Liontrust",
+      "description": "Build a small enterprise-style Windows infrastructure environment.",
+      "environment": ["DC01", "APP01", "CLIENT01", "CLIENT02"],
+      "features": [
+        "Active Directory",
+        "Group Policies",
+        "DNS",
+        "DHCP",
+        "Intune",
+        "User onboarding",
+        "Device onboarding"
+      ]
+    }
+  }
+]
