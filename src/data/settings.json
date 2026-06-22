@@ -1,0 +1,25 @@
+{
+  "interaction": {
+    "expansionMode": "single"
+  },
+  "sections": [
+    {
+      "id": "pilgrimages",
+      "enabled": true,
+      "region": "workspace",
+      "order": 1
+    },
+    {
+      "id": "roadmap",
+      "enabled": false, 
+      "region": "workspace",
+      "order": 2
+    },
+    {
+      "id": "requirements",
+      "enabled": false,
+      "region": "sidebar",
+      "order": 1
+    }
+  ]
+}
