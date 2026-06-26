@@ -46,5 +46,49 @@
         "Device onboarding"
       ]
     }
+  },
+  {
+    "id": "linux",
+    "title": "Linux Pilgrimage",
+    "icon": "terminal",
+    "subtitle": "Linux administration, services, networking, and containers",
+    "difficulty": "Foundational to Intermediate",
+    "estimatedTime": "3-6 months",
+    "techStack": [
+      "Ubuntu",
+      "Debian",
+      "RHEL",
+      "Bash",
+      "SSH",
+      "systemd",
+      "Networking",
+      "Git",
+      "Docker"
+    ],
+    "learningPath": [
+      {
+        "phase": "Phase 1",
+        "items": ["Linux Essentials"]
+      },
+      {
+        "phase": "Phase 2",
+        "items": ["RHCSA"]
+      },
+      {
+        "phase": "Phase 3",
+        "items": ["RHCE optional"]
+      }
+    ],
+    "project": {
+      "name": "Linux Services Platform",
+      "description": "Build and operate a small Linux-hosted services environment.",
+      "services": [
+        "Nginx",
+        "MariaDB",
+        "Docker",
+        "SSH",
+        "Monitoring"
+      ]
+    }
   }
 ]
