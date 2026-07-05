@@ -90,12 +90,9 @@ body {
   transition: grid-template-rows 180ms ease;
 }
 
-.app-region--workspace[data-focus-mode="pilgrimages"] {
-  grid-template-rows: minmax(0, 1.45fr) minmax(0, 0.42fr);
-}
-
+.app-region--workspace[data-focus-mode="pilgrimages"],
 .app-region--workspace[data-focus-mode="roadmap"] {
-  grid-template-rows: minmax(0, 0.42fr) minmax(0, 1.45fr);
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .app-region--sidebar {
@@ -149,6 +146,11 @@ strong {
   min-height: 0;
   overflow: hidden;
   padding-block: 0.75rem 0;
+}
+
+.app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-rail,
+.app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-rail {
+  display: none;
 }
 
 .pilgrimage-rail__track {
@@ -248,7 +250,7 @@ strong {
 }
 
 .pilgrimage-card.is-expanded .pilgrimage-card__details {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .pilgrimage-card__details[hidden] {
@@ -260,6 +262,11 @@ strong {
   gap: 0.5rem;
   align-content: start;
   min-width: 0;
+}
+
+.pilgrimage-card.is-expanded .pilgrimage-card__detail-block + .pilgrimage-card__detail-block {
+  border-top: 1px solid #333;
+  padding-block-start: 1rem;
 }
 
 .pilgrimage-card__detail-block h4 {
