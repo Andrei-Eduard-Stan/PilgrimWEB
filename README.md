@@ -266,6 +266,14 @@ Read the full guide here:
 docs/github-ci-cd.md
 ```
 
+## Learning Book
+
+The zero-to-project study guide is here:
+
+```text
+docs/learning-book.md
+```
+
 The current Vite base path is:
 
 ```js
