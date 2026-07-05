@@ -7,28 +7,46 @@
     "skills": ["HTML", "CSS", "JavaScript basics", "Git", "GitHub"],
     "projects": ["Infrastructure Pilgrimage Roadmap"],
     "outcome": "Comfortable editing, running, and committing a small Vite website.",
-    "weeklyHabits": [
-      "Make at least three Git commits per week",
-      "Write notes in README.md as the project grows",
-      "Review one HTML, CSS, or JavaScript concept each week"
-    ],
-    "recommendedCourses": [
-      "MDN HTML basics",
-      "MDN CSS basics",
-      "JavaScript fundamentals"
-    ],
-    "projectDeliverables": [
-      "Working Vite website",
-      "JSON-driven pilgrimage cards",
-      "Expandable roadmap rail"
-    ],
-    "githubDeliverables": [
-      "Clear commit history",
-      "README with setup instructions",
-      "Public repository"
-    ],
-    "confidenceCheckpoint": "You can explain how JSON becomes visible UI in the browser."
-    
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Make at least three Git commits per week",
+          "Write notes in README.md as the project grows",
+          "Review one HTML, CSS, or JavaScript concept each week"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "MDN HTML basics",
+          "MDN CSS basics",
+          "JavaScript fundamentals"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "Working Vite website",
+          "JSON-driven pilgrimage cards",
+          "Expandable roadmap rail"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "Clear commit history",
+          "README with setup instructions",
+          "Public repository"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain how JSON becomes visible UI in the browser."
+        ]
+      }
+    ]
   },
   {
     "id": "phase-2",
@@ -37,6 +55,46 @@
     "mainFocus": "Infrastructure scripting and automation",
     "skills": ["PowerShell", "JSON", "APIs", "Active Directory concepts"],
     "projects": ["Enterprise Automation Toolkit"],
-    "outcome": "Able to build small automation tools and document them on GitHub."
+    "outcome": "Able to build small automation tools and document them on GitHub.",
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Write or improve one small PowerShell script each week",
+          "Use Git commits to save each working script change",
+          "Document script inputs, outputs, and errors"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "Learn PowerShell in a Month of Lunches",
+          "PowerShell scripting fundamentals",
+          "Microsoft Graph API basics"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "User reporting script",
+          "JSON-backed automation notes",
+          "Reusable script folder structure"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "powershell/ folder",
+          "Script README examples",
+          "Troubleshooting notes"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain what your script automates, what data it needs, and how to run it safely."
+        ]
+      }
+    ]
   }
 ]
