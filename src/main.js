@@ -18,7 +18,6 @@ const appState = {
   expandedIds: new Set(),
   expandedRoadmapIds: new Set(),
   expansionMode: "single",
-  focusedWorkspaceSection: null,
 };
 
 const dashboard = createDashboardShell();
@@ -36,14 +35,9 @@ dashboard.regions.status.append(statusMessage);
 app.replaceChildren(dashboard.element);
 
 function getEnabledSections(settings) {
-  const sections = Array.isArray(settings.sections) ? settings.sections : [];
-
-  return sections
+  return settings.sections
     .filter((section) => section.enabled)
-    .sort(
-      (firstSection, secondSection) =>
-        (firstSection.order ?? 0) - (secondSection.order ?? 0),
-    );
+    .sort((firstSection, secondSection) => firstSection.order - secondSection.order);
 }
 
 async function loadDataForSections(sections) {
@@ -74,44 +68,21 @@ async function loadDataForSections(sections) {
 }
 
 function clearContentRegions() {
-  for (const region of Object.values(contentRegions)) {
+  for (const region of Object.values(contentRegions)){
     region.replaceChildren();
   }
 }
 
-function getWorkspaceFocusMode() {
-  if (
-    appState.focusedWorkspaceSection === "pilgrimages" &&
-    appState.expandedIds.size > 0
-  ) {
-    return "pilgrimages";
-  }
-
-  if (
-    appState.focusedWorkspaceSection === "roadmap" &&
-    appState.expandedRoadmapIds.size > 0
-  ) {
-    return "roadmap";
-  }
-
-  return "balanced";
-}
 
 function toggleExpandedId(itemId) {
   const isAlreadyExpanded = appState.expandedIds.has(itemId);
 
   if (appState.expansionMode === "single") {
     appState.expandedIds.clear();
-    appState.expandedRoadmapIds.clear();
-  } else if (isAlreadyExpanded) {
-    appState.expandedIds.delete(itemId);
   }
 
   if (!isAlreadyExpanded) {
     appState.expandedIds.add(itemId);
-    appState.focusedWorkspaceSection = "pilgrimages";
-  } else if (appState.expandedIds.size === 0) {
-    appState.focusedWorkspaceSection = null;
   }
 }
 
@@ -120,23 +91,16 @@ function toggleRoadmapPhaseId(phaseId) {
 
   if (appState.expansionMode === "single") {
     appState.expandedRoadmapIds.clear();
-    appState.expandedIds.clear();
-  } else if (isAlreadyExpanded) {
-    appState.expandedRoadmapIds.delete(phaseId);
   }
 
   if (!isAlreadyExpanded) {
     appState.expandedRoadmapIds.add(phaseId);
-    appState.focusedWorkspaceSection = "roadmap";
-  } else if (appState.expandedRoadmapIds.size === 0) {
-    appState.focusedWorkspaceSection = null;
   }
 }
 
 function renderSections({ sections, dataByKey, settings }) {
   clearContentRegions();
   appState.expansionMode = settings.interaction?.expansionMode ?? "single";
-  dashboard.regions.workspace.dataset.focusMode = getWorkspaceFocusMode();
 
   for (const section of sections) {
     const registryEntry = sectionRegistry[section.id];
@@ -151,9 +115,9 @@ function renderSections({ sections, dataByKey, settings }) {
           renderSections({ sections, dataByKey, settings });
         },
         onToggleRoadmapPhase: (phaseId) => {
-          toggleRoadmapPhaseId(phaseId);
-          renderSections({ sections, dataByKey, settings });
-        },
+        toggleRoadmapPhaseId(phaseId);
+        renderSections({ sections, dataByKey, settings });
+},
       },
     });
 
