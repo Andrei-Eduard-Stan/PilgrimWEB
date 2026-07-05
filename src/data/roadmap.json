@@ -19,34 +19,53 @@
       "Infrastructure Pilgrimage Roadmap"
     ],
     "outcome": "You can build a working Windows domain, join clients, apply basic policies, document the lab, and save progress in Git.",
-    "weeklyHabits": [
-      "Make at least three Git commits per week",
-      "Document every lab change in Markdown",
-      "Capture one screenshot or command output for each completed lab task",
-      "Review one Windows Server, DNS, DHCP, AD, or GPO concept each week"
-    ],
-    "recommendedCourses": [
-      "Microsoft Learn Windows Server fundamentals",
-      "AZ-800 and AZ-801 learning content",
-      "MDN HTML and CSS basics for the roadmap site",
-      "Git and GitHub fundamentals"
-    ],
-    "projectDeliverables": [
-      "Domain controller VM",
-      "DNS forward and reverse lookup notes",
-      "DHCP scope and reservation notes",
-      "OU structure",
-      "Basic GPO list",
-      "README setup instructions"
-    ],
-    "githubDeliverables": [
-      "Clean repository structure",
-      "Small descriptive commits",
-      "README with lab overview",
-      "docs/windows-lab.md",
-      "screenshots/ folder"
-    ],
-    "confidenceCheckpoint": "You can explain how a Windows client receives an IP address, resolves the domain controller, joins the domain, and receives Group Policy."
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Make at least three Git commits per week",
+          "Document every lab change in Markdown",
+          "Capture one screenshot or command output for each completed lab task",
+          "Review one Windows Server, DNS, DHCP, AD, or GPO concept each week"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "Microsoft Learn Windows Server fundamentals",
+          "AZ-800 and AZ-801 learning content",
+          "MDN HTML and CSS basics for the roadmap site",
+          "Git and GitHub fundamentals"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "Domain controller VM",
+          "DNS forward and reverse lookup notes",
+          "DHCP scope and reservation notes",
+          "OU structure",
+          "Basic GPO list",
+          "README setup instructions"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "Clean repository structure",
+          "Small descriptive commits",
+          "README with lab overview",
+          "docs/windows-lab.md",
+          "screenshots/ folder"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain how a Windows client receives an IP address, resolves the domain controller, joins the domain, and receives Group Policy."
+        ]
+      }
+    ]
   },
   {
     "id": "phase-2",
@@ -70,34 +89,53 @@
       "User Lifecycle Scripts"
     ],
     "outcome": "You can automate common account and reporting workflows instead of completing every task manually.",
-    "weeklyHabits": [
-      "Write or improve one PowerShell script each week",
-      "Use Git branches for script changes",
-      "Test scripts against lab users before documenting them",
-      "Write down every error and how you fixed it"
-    ],
-    "recommendedCourses": [
-      "Learn PowerShell in a Month of Lunches",
-      "PowerShell Scripting and Toolmaking",
-      "AZ-040 PowerShell administration content",
-      "MD-102 endpoint administration content"
-    ],
-    "projectDeliverables": [
-      "New user script",
-      "Leaver disable script",
-      "Group membership report",
-      "Inactive users report",
-      "Intune policy notes",
-      "Entra ID comparison notes"
-    ],
-    "githubDeliverables": [
-      "powershell/ folder",
-      "Sample CSV files",
-      "Script usage examples",
-      "Troubleshooting notes",
-      "CHANGELOG.md"
-    ],
-    "confidenceCheckpoint": "You can explain a joiner, mover, and leaver process and show which parts your PowerShell scripts automate."
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Write or improve one PowerShell script each week",
+          "Use Git branches for script changes",
+          "Test scripts against lab users before documenting them",
+          "Write down every error and how you fixed it"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "Learn PowerShell in a Month of Lunches",
+          "PowerShell Scripting and Toolmaking",
+          "AZ-040 PowerShell administration content",
+          "MD-102 endpoint administration content"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "New user script",
+          "Leaver disable script",
+          "Group membership report",
+          "Inactive users report",
+          "Intune policy notes",
+          "Entra ID comparison notes"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "powershell/ folder",
+          "Sample CSV files",
+          "Script usage examples",
+          "Troubleshooting notes",
+          "CHANGELOG.md"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain a joiner, mover, and leaver process and show which parts your PowerShell scripts automate."
+        ]
+      }
+    ]
   },
   {
     "id": "phase-3",
@@ -123,35 +161,54 @@
       "Self-Hosted Operations Platform"
     ],
     "outcome": "You can administer Linux services, process infrastructure data with Python, and run repeatable local services with Docker Compose.",
-    "weeklyHabits": [
-      "Use Linux terminal commands daily",
-      "Read service logs with journalctl",
-      "Write one small Python automation task per week",
-      "Containerize one service or tool"
-    ],
-    "recommendedCourses": [
-      "Linux Essentials",
-      "RHCSA study material",
-      "Python Crash Course",
-      "Automate the Boring Stuff",
-      "Docker Deep Dive"
-    ],
-    "projectDeliverables": [
-      "Nginx service",
-      "MariaDB service",
-      "SSH hardening notes",
-      "Python reporting script",
-      "FastAPI prototype",
-      "Docker Compose monitoring stack"
-    ],
-    "githubDeliverables": [
-      "linux/ folder",
-      "python/ folder",
-      "docker/ folder",
-      "Service recovery notes",
-      "docker-compose.yml examples"
-    ],
-    "confidenceCheckpoint": "You can recover a broken Linux service, inspect logs, explain the fix, and commit the documented result."
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Use Linux terminal commands daily",
+          "Read service logs with journalctl",
+          "Write one small Python automation task per week",
+          "Containerize one service or tool"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "Linux Essentials",
+          "RHCSA study material",
+          "Python Crash Course",
+          "Automate the Boring Stuff",
+          "Docker Deep Dive"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "Nginx service",
+          "MariaDB service",
+          "SSH hardening notes",
+          "Python reporting script",
+          "FastAPI prototype",
+          "Docker Compose monitoring stack"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "linux/ folder",
+          "python/ folder",
+          "docker/ folder",
+          "Service recovery notes",
+          "docker-compose.yml examples"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can recover a broken Linux service, inspect logs, explain the fix, and commit the documented result."
+        ]
+      }
+    ]
   },
   {
     "id": "phase-4",
@@ -179,34 +236,53 @@
       "Fleet Management Platform"
     ],
     "outcome": "You can define infrastructure and configuration in code, run automated checks, and deploy changes repeatably.",
-    "weeklyHabits": [
-      "Review every infrastructure change with git diff before committing",
-      "Run builds or checks before push",
-      "Keep secrets out of Git",
-      "Document rollback steps for every automation workflow"
-    ],
-    "recommendedCourses": [
-      "GitHub Actions fundamentals",
-      "Terraform Associate study path",
-      "Ansible Fundamentals",
-      "CI/CD design basics"
-    ],
-    "projectDeliverables": [
-      "GitHub Actions build workflow",
-      "GitHub Pages deployment workflow",
-      "Terraform module skeleton",
-      "Ansible role skeleton",
-      "Environment variable documentation",
-      "Secret handling notes"
-    ],
-    "githubDeliverables": [
-      ".github/workflows/build.yml",
-      "terraform/ folder",
-      "ansible/ folder",
-      "docs/ci-cd.md",
-      "docs/iac.md"
-    ],
-    "confidenceCheckpoint": "You can explain how a Git push can trigger validation, build output, infrastructure planning, and deployment."
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Review every infrastructure change with git diff before committing",
+          "Run builds or checks before push",
+          "Keep secrets out of Git",
+          "Document rollback steps for every automation workflow"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "GitHub Actions fundamentals",
+          "Terraform Associate study path",
+          "Ansible Fundamentals",
+          "CI/CD design basics"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "GitHub Actions build workflow",
+          "GitHub Pages deployment workflow",
+          "Terraform module skeleton",
+          "Ansible role skeleton",
+          "Environment variable documentation",
+          "Secret handling notes"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          ".github/workflows/build.yml",
+          "terraform/ folder",
+          "ansible/ folder",
+          "docs/ci-cd.md",
+          "docs/iac.md"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain how a Git push can trigger validation, build output, infrastructure planning, and deployment."
+        ]
+      }
+    ]
   },
   {
     "id": "phase-5",
@@ -233,34 +309,53 @@
       "Monitoring and Alerting Platform"
     ],
     "outcome": "You can explain and demonstrate a complete infrastructure workflow from request to deployed and monitored service.",
-    "weeklyHabits": [
-      "Deploy or modify one service in the cluster each week",
-      "Write a runbook for every repeated operational task",
-      "Test one failure scenario each month",
-      "Review monitoring dashboards and alert quality"
-    ],
-    "recommendedCourses": [
-      "K3s fundamentals",
-      "Kubernetes essentials",
-      "CKA optional",
-      "Prometheus and Grafana fundamentals"
-    ],
-    "projectDeliverables": [
-      "K3s cluster",
-      "Ingress controller",
-      "Helm-deployed application",
-      "Persistent storage example",
-      "Grafana dashboard",
-      "Failure scenario write-up",
-      "End-to-end lab demo"
-    ],
-    "githubDeliverables": [
-      "kubernetes/ folder",
-      "monitoring/ folder",
-      "runbooks/ folder",
-      "architecture diagram",
-      "final portfolio README"
-    ],
-    "confidenceCheckpoint": "You can walk through the full lab and explain how identity, automation, infrastructure, deployment, and monitoring connect."
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Deploy or modify one service in the cluster each week",
+          "Write a runbook for every repeated operational task",
+          "Test one failure scenario each month",
+          "Review monitoring dashboards and alert quality"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "K3s fundamentals",
+          "Kubernetes essentials",
+          "CKA optional",
+          "Prometheus and Grafana fundamentals"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "K3s cluster",
+          "Ingress controller",
+          "Helm-deployed application",
+          "Persistent storage example",
+          "Grafana dashboard",
+          "Failure scenario write-up",
+          "End-to-end lab demo"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "kubernetes/ folder",
+          "monitoring/ folder",
+          "runbooks/ folder",
+          "architecture diagram",
+          "final portfolio README"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can walk through the full lab and explain how identity, automation, infrastructure, deployment, and monitoring connect."
+        ]
+      }
+    ]
   }
 ]

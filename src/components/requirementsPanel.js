@@ -1,19 +1,17 @@
 function createRequirementItem(item) {
-
   const listItem = document.createElement("li");
   const name = document.createElement("strong");
   const detail = document.createElement("p");
 
-  name.textContent = item.name;
-  detail.textContent = item.detail;
+  name.textContent = item.name ?? "Requirement";
+  detail.textContent = item.detail ?? "";
 
   listItem.append(name, detail);
 
   return listItem;
 }
 
-function createRequirementGroup(group) {
-
+function createRequirementGroup(group, { isOpen = false } = {}) {
   const details = document.createElement("details");
   const summary = document.createElement("summary");
   const title = document.createElement("span");
@@ -21,14 +19,15 @@ function createRequirementGroup(group) {
   const list = document.createElement("ul");
 
   details.className = "requirement-group";
+  details.open = isOpen;
   title.className = "requirement-group__title";
   description.className = "requirement-group__description";
-  title.textContent = group.title;
-  description.textContent = group.description;
+  title.textContent = group.title ?? "Requirements";
+  description.textContent = group.description ?? "";
 
   summary.append(title, description);
 
-  for (const item of group.items) {
+  for (const item of group.items ?? []) {
     list.append(createRequirementItem(item));
   }
 
@@ -53,8 +52,8 @@ export function renderRequirementsPanel({ data }) {
 
   section.append(heading);
 
-  for (const group of data) {
-    section.append(createRequirementGroup(group));
+  for (const [index, group] of data.entries()) {
+    section.append(createRequirementGroup(group, { isOpen: index === 0 }));
   }
 
   return section;
