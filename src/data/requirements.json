@@ -1,7 +1,7 @@
 [
   {
     "id": "hardware",
-    "title": "Hardware",
+    "title": "Main Computer",
     "description": "Physical capacity for development, local testing, and a small infrastructure lab.",
     "items": [
       {
@@ -177,9 +177,9 @@
     ]
   },
   {
-    "id": "optional-lab-equipment",
-    "title": "Optional Lab Equipment",
-    "description": "Useful later, but not required to keep building the website or learning the fundamentals.",
+    "id": "lab-equipment",
+    "title": "Lab Equipment",
+    "description": "Ideal for expanding the lab into a more realistic infrastructure environment with multiple servers, clients, and network segments.",
     "items": [
       {
         "name": "Dedicated mini PC",
@@ -194,7 +194,7 @@
         "detail": "Useful for VM backups, ISO storage, exported reports, screenshots, and recovery testing."
       },
       {
-        "name": "Test laptop",
+        "name": "Test PCs",
         "detail": "Useful later for Autopilot, Intune enrollment, endpoint compliance, and real device troubleshooting."
       }
     ]
