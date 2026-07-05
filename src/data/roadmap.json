@@ -96,5 +96,226 @@
         ]
       }
     ]
+  },
+  {
+    "id": "phase-3",
+    "phase": "Phase 3",
+    "timeframe": "6-12 months",
+    "mainFocus": "Linux administration, Python automation, and Docker-based services.",
+    "skills": [
+      "Linux filesystem",
+      "Bash",
+      "SSH",
+      "systemd",
+      "Linux networking",
+      "Python",
+      "Requests",
+      "Pandas",
+      "FastAPI",
+      "Docker",
+      "Docker Compose"
+    ],
+    "projects": [
+      "Linux Services Platform",
+      "Infrastructure Intelligence Platform",
+      "Self-Hosted Operations Platform"
+    ],
+    "outcome": "You can administer Linux services, process infrastructure data with Python, and run repeatable local services with Docker Compose.",
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Use Linux terminal commands daily",
+          "Read service logs with journalctl",
+          "Write one small Python automation task per week",
+          "Containerize one service or tool"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "Linux Essentials",
+          "RHCSA study material",
+          "Python Crash Course",
+          "Automate the Boring Stuff",
+          "Docker Deep Dive"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "Nginx service",
+          "MariaDB service",
+          "SSH hardening notes",
+          "Python reporting script",
+          "FastAPI prototype",
+          "Docker Compose monitoring stack"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "linux/ folder",
+          "python/ folder",
+          "docker/ folder",
+          "Service recovery notes",
+          "docker-compose.yml examples"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can recover a broken Linux service, inspect logs, explain the fix, and commit the documented result."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase-4",
+    "phase": "Phase 4",
+    "timeframe": "12-18 months",
+    "mainFocus": "CI/CD, Infrastructure as Code, and configuration management.",
+    "skills": [
+      "GitHub Actions",
+      "YAML",
+      "Build checks",
+      "Artifacts",
+      "Secrets",
+      "Terraform",
+      "HCL",
+      "Terraform modules",
+      "State",
+      "Ansible",
+      "Playbooks",
+      "Roles",
+      "Vault"
+    ],
+    "projects": [
+      "Automated Delivery Pipeline",
+      "Infrastructure Factory",
+      "Fleet Management Platform"
+    ],
+    "outcome": "You can define infrastructure and configuration in code, run automated checks, and deploy changes repeatably.",
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Review every infrastructure change with git diff before committing",
+          "Run builds or checks before push",
+          "Keep secrets out of Git",
+          "Document rollback steps for every automation workflow"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "GitHub Actions fundamentals",
+          "Terraform Associate study path",
+          "Ansible Fundamentals",
+          "CI/CD design basics"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "GitHub Actions build workflow",
+          "GitHub Pages deployment workflow",
+          "Terraform module skeleton",
+          "Ansible role skeleton",
+          "Environment variable documentation",
+          "Secret handling notes"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          ".github/workflows/build.yml",
+          "terraform/ folder",
+          "ansible/ folder",
+          "docs/ci-cd.md",
+          "docs/iac.md"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can explain how a Git push can trigger validation, build output, infrastructure planning, and deployment."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase-5",
+    "phase": "Phase 5",
+    "timeframe": "18-24 months",
+    "mainFocus": "Kubernetes, monitoring, reliability, and integrated platform operations.",
+    "skills": [
+      "K3s",
+      "Kubernetes",
+      "Pods",
+      "Deployments",
+      "Services",
+      "Ingress",
+      "Helm",
+      "Storage",
+      "Secrets",
+      "Prometheus",
+      "Grafana",
+      "Runbooks"
+    ],
+    "projects": [
+      "Production-Style Kubernetes Cluster",
+      "Andrei Enterprise Lab",
+      "Monitoring and Alerting Platform"
+    ],
+    "outcome": "You can explain and demonstrate a complete infrastructure workflow from request to deployed and monitored service.",
+    "detailSections": [
+      {
+        "title": "Weekly Habits",
+        "items": [
+          "Deploy or modify one service in the cluster each week",
+          "Write a runbook for every repeated operational task",
+          "Test one failure scenario each month",
+          "Review monitoring dashboards and alert quality"
+        ]
+      },
+      {
+        "title": "Recommended Courses",
+        "items": [
+          "K3s fundamentals",
+          "Kubernetes essentials",
+          "CKA optional",
+          "Prometheus and Grafana fundamentals"
+        ]
+      },
+      {
+        "title": "Project Deliverables",
+        "items": [
+          "K3s cluster",
+          "Ingress controller",
+          "Helm-deployed application",
+          "Persistent storage example",
+          "Grafana dashboard",
+          "Failure scenario write-up",
+          "End-to-end lab demo"
+        ]
+      },
+      {
+        "title": "GitHub Deliverables",
+        "items": [
+          "kubernetes/ folder",
+          "monitoring/ folder",
+          "runbooks/ folder",
+          "architecture diagram",
+          "final portfolio README"
+        ]
+      },
+      {
+        "title": "Confidence Checkpoint",
+        "items": [
+          "You can walk through the full lab and explain how identity, automation, infrastructure, deployment, and monitoring connect."
+        ]
+      }
+    ]
   }
 ]
