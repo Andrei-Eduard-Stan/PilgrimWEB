@@ -1,42 +1,58 @@
 # Infrastructure Pilgrimage Roadmap
 
-A modular, JSON-driven roadmap dashboard for infrastructure, systems engineering, automation, and platform learning.
+A modular, JSON-driven roadmap dashboard for infrastructure, systems
+engineering, automation, and platform learning.
 
-The project is built as a modern black-and-white terminal dashboard. It displays technical learning pillars as horizontal pilgrimage cards, a phased roadmap rail, and a requirements panel for lab equipment, tools, accounts, and documentation.
+The project uses a modern black-and-white terminal style. It is intentionally
+built with Vite, plain JavaScript modules, CSS, JSON, Git, and GitHub so the
+fundamentals stay visible.
+
+## What The App Shows
+
+- Pilgrimage Rail: technical pillars such as Windows, PowerShell, Git, Linux,
+  Python, Docker, Terraform, Ansible, Kubernetes, and the integrated lab.
+- Roadmap: phased learning plan with skills, projects, outcomes, and flexible
+  detail sections.
+- Requirements: hardware, software, subscriptions, licences, networking, and
+  documentation requirements.
+
+On desktop, the app is designed to fit inside one viewport. Rails scroll
+horizontally inside their own sections, while the requirements panel scrolls
+vertically inside the sidebar.
 
 ## Current Features
 
-- Viewport-based desktop dashboard layout
-- Mobile layout that returns to natural vertical scrolling
-- JSON-driven pilgrimage cards
-- JSON-driven roadmap phase cards
-- JSON-driven requirements panel
-- Expandable pilgrimage and roadmap cards
-- Native `details` and `summary` requirements accordions
+- Vite development server and production build
+- Vanilla JavaScript component modules
+- JSON-driven content
 - Modular section registry
-- Vite development and production build workflow
-
-## Tech Stack
-
-- Vite
-- Vanilla JavaScript modules
-- Plain CSS
-- JSON data files
-- Git and GitHub
-
-This project intentionally avoids React or a component framework for now. The goal is to learn the fundamentals directly: HTML structure, CSS layout, JavaScript modules, DOM rendering, JSON loading, Git, GitHub, and deployment.
+- Expandable pilgrimage and roadmap cards
+- Focused rail behavior: expanding one rail gives it more vertical space
+- Expandable requirements groups
+- Desktop dashboard layout
+- Mobile layout with natural vertical scrolling
+- Data validation script
+- GitHub Pages deployment workflow
 
 ## Project Structure
 
 ```text
+.github/
+  workflows/
+    deploy-pages.yml
+docs/
+  data-contract.md
+  github-ci-cd.md
+scripts/
+  validate-data.mjs
 src/
-  config/
-    sectionRegistry.js
   components/
     dashboardShell.js
     pilgrimageCards.js
     requirementsPanel.js
     roadmapRail.js
+  config/
+    sectionRegistry.js
   data/
     pilgrimages.json
     requirements.json
@@ -46,9 +62,14 @@ src/
     loadJSON.js
   main.js
   styles.css
+index.html
+package.json
+vite.config.js
 ```
 
-## Data Flow
+## How The App Works
+
+The app starts in `src/main.js`.
 
 ```text
 settings.json
@@ -60,41 +81,13 @@ settings.json
   -> browser
 ```
 
-Each section has a stable ID in `settings.json`. The registry maps that ID to a data source and renderer.
+The key idea:
 
-Example:
-
-```js
-roadmap: {
-  dataKey: "roadmap",
-  render: renderRoadmapRail,
-}
-```
-
-That means the app can load `roadmap.json`, pass it to `renderRoadmapRail()`, and place the result in the region configured by `settings.json`.
-
-## Editing Content
-
-Most content changes should happen in JSON:
-
-- Add or edit pilgrimage pillars in `src/data/pilgrimages.json`
-- Add or edit roadmap phases in `src/data/roadmap.json`
-- Add or edit requirement groups in `src/data/requirements.json`
-- Enable, disable, reorder, or move sections in `src/data/settings.json`
-
-Roadmap phase details use a flexible `detailSections` array:
-
-```json
-{
-  "title": "Weekly Habits",
-  "items": [
-    "Make at least three Git commits per week",
-    "Document every lab change in Markdown"
-  ]
-}
-```
-
-You can rename the title, remove the section, or add another section without editing the JavaScript renderer.
+- JSON stores the content.
+- JavaScript reads the JSON and creates HTML elements.
+- CSS controls the visual layout.
+- Git saves each checkpoint.
+- GitHub Actions can validate, build, and publish the site.
 
 ## Local Development
 
@@ -104,7 +97,7 @@ Install dependencies:
 npm install
 ```
 
-Start the development server:
+Start the dev server:
 
 ```bash
 npm run dev
@@ -116,27 +109,138 @@ Build for production:
 npm run build
 ```
 
+Validate data only:
+
+```bash
+npm run check:data
+```
+
+Validate data and build:
+
+```bash
+npm run check
+```
+
 Preview the production build:
 
 ```bash
 npm run preview
 ```
 
-## Deployment
+On Windows PowerShell, if script execution blocks `npm`, use the command shim:
 
-The site is configured for GitHub Pages at:
+```bash
+npm.cmd run check
+```
+
+In Git Bash, normal `npm run check` should work.
+
+## Editing Content
+
+Most content changes should happen in JSON:
+
+- `src/data/pilgrimages.json`
+- `src/data/roadmap.json`
+- `src/data/requirements.json`
+- `src/data/settings.json`
+
+The safest edits are changing text, adding array items, removing array items,
+and reordering items.
+
+Example safe roadmap edit:
+
+```json
+{
+  "title": "Monthly Routine",
+  "items": [
+    "Review lab notes",
+    "Commit documented progress"
+  ]
+}
+```
+
+The key `title` must stay as `title`, but the value can be renamed freely.
+
+Read the full contract here:
 
 ```text
-https://andrei-eduard-stan.github.io/PilgrimWEB/
+docs/data-contract.md
 ```
 
-Because this is a project site under the `PilgrimWEB` repository, `vite.config.js` uses:
+## Modularity
+
+Sections are controlled by `src/data/settings.json`.
+
+Example:
+
+```json
+{
+  "id": "roadmap",
+  "enabled": true,
+  "region": "workspace",
+  "order": 2
+}
+```
+
+The `id` connects to `src/config/sectionRegistry.js`.
 
 ```js
-base: "/PilgrimWEB/"
+roadmap: {
+  dataKey: "roadmap",
+  render: renderRoadmapRail,
+}
 ```
 
-The deployment workflow lives in:
+That means you can enable, disable, reorder, or move existing sections without
+touching `index.html`.
+
+Adding a brand-new section needs three things:
+
+1. A JSON data file.
+2. A component renderer.
+3. A registry entry in `sectionRegistry.js`.
+
+## Git Workflow
+
+Check what changed:
+
+```bash
+git status
+```
+
+Review edits:
+
+```bash
+git diff
+```
+
+Run checks:
+
+```bash
+npm run check
+```
+
+Stage files:
+
+```bash
+git add -A
+```
+
+Commit:
+
+```bash
+git commit -m "Describe the completed change"
+```
+
+Push:
+
+```bash
+git push
+```
+
+## GitHub Pages And CI/CD
+
+The deployment workflow is:
 
 ```text
 .github/workflows/deploy-pages.yml
@@ -146,58 +250,31 @@ On every push to `main`, GitHub Actions will:
 
 ```text
 checkout repository
+setup Node.js
 install dependencies
+validate JSON data
 build the Vite site
-upload dist as a Pages artifact
+upload dist/
 deploy to GitHub Pages
 ```
 
-In GitHub, the repository must have Pages configured to use GitHub Actions:
+Read the full guide here:
 
 ```text
-Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+docs/github-ci-cd.md
 ```
 
-## Git Workflow
+The current Vite base path is:
 
-Check the working tree:
-
-```bash
-git status
+```js
+base: "/PilgrimWEB/"
 ```
 
-Review changed files:
-
-```bash
-git diff --stat
-```
-
-Stage all file changes:
-
-```bash
-git add -A
-```
-
-Commit a checkpoint:
-
-```bash
-git commit -m "Describe the completed step"
-```
-
-Push to GitHub:
-
-```bash
-git push
-```
-
-## Next Improvements
-
-- Add progress tracking
-- Add search or filtering
-- Add saved progress with `localStorage`
-- Add print-friendly view
-- Add more screenshots and architecture diagrams
+If the GitHub repository name changes, update `vite.config.js` to match.
 
 ## Purpose
 
-This project is both a learning dashboard and a portfolio artifact. It is designed to show practical growth across Windows infrastructure, Linux, PowerShell, Python, Git, CI/CD, Docker, Terraform, Ansible, Kubernetes, and integrated enterprise lab work.
+This is both a learning dashboard and a portfolio artifact. The goal is to
+build evidence of practical growth across Windows infrastructure, Linux,
+PowerShell, Python, Git, CI/CD, Docker, Terraform, Ansible, Kubernetes, and an
+integrated enterprise lab.

@@ -1,4 +1,22 @@
+function toArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function getText(value, fallback) {
+  return typeof value === "string" && value.trim() ? value : fallback;
+}
+
+function isObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value);
+}
+
 function createListBlock(titleText, items) {
+  const safeItems = toArray(items).filter(Boolean);
+
+  if (safeItems.length === 0) {
+    return null;
+  }
+
   const block = document.createElement("section");
   const title = document.createElement("h4");
   const list = document.createElement("ul");
@@ -6,7 +24,7 @@ function createListBlock(titleText, items) {
   block.className = "roadmap-card__detail-block";
   title.textContent = titleText;
 
-  for (const item of items) {
+  for (const item of safeItems) {
     const listItem = document.createElement("li");
 
     listItem.textContent = item;
@@ -19,14 +37,17 @@ function createListBlock(titleText, items) {
 }
 
 function appendDetailSection(details, title, items) {
-  if (!title || !Array.isArray(items) || items.length === 0) {
+  const listBlock = createListBlock(title, items);
+
+  if (!title || !listBlock) {
     return;
   }
 
-  details.append(createListBlock(title, items));
+  details.append(listBlock);
 }
 
-function createRoadmapCard(phase, { isExpanded = false, onToggle } = {}) {
+function createRoadmapCard(phase, { index = 0, isExpanded = false, onToggle } = {}) {
+  const safePhase = isObject(phase) ? phase : {};
   const card = document.createElement("article");
   const header = document.createElement("div");
   const title = document.createElement("h3");
@@ -34,14 +55,15 @@ function createRoadmapCard(phase, { isExpanded = false, onToggle } = {}) {
   const timeframe = document.createElement("p");
   const focus = document.createElement("p");
   const details = document.createElement("div");
-  const detailsId = `${phase.id}-details`;
+  const phaseId = getText(safePhase.id, `phase-${index + 1}`);
+  const detailsId = `${phaseId}-details`;
 
   card.className = isExpanded ? "roadmap-card is-expanded" : "roadmap-card";
-  card.dataset.phaseId = phase.id;
+  card.dataset.phaseId = phaseId;
 
   header.className = "roadmap-card__header";
 
-  title.textContent = phase.phase;
+  title.textContent = getText(safePhase.phase, `Phase ${index + 1}`);
 
   toggleButton.className = "roadmap-card__toggle";
   toggleButton.type = "button";
@@ -49,25 +71,32 @@ function createRoadmapCard(phase, { isExpanded = false, onToggle } = {}) {
   toggleButton.setAttribute("aria-expanded", String(isExpanded));
   toggleButton.setAttribute("aria-controls", detailsId);
   toggleButton.addEventListener("click", () => {
-    onToggle?.(phase.id);
+    onToggle?.(phaseId);
   });
 
   timeframe.className = "roadmap-card__timeframe";
-  timeframe.textContent = phase.timeframe;
+  timeframe.textContent = getText(safePhase.timeframe, "Timeframe not set");
 
   focus.className = "roadmap-card__focus";
-  focus.textContent = phase.mainFocus;
+  focus.textContent = getText(safePhase.mainFocus, "No focus summary provided.");
 
   details.id = detailsId;
   details.className = "roadmap-card__details";
   details.hidden = !isExpanded;
 
-  appendDetailSection(details, "Skills", phase.skills);
-  appendDetailSection(details, "Projects", phase.projects);
-  appendDetailSection(details, "Outcome", phase.outcome ? [phase.outcome] : []);
+  appendDetailSection(details, "Skills", safePhase.skills);
+  appendDetailSection(details, "Projects", safePhase.projects);
+  appendDetailSection(details, "Outcome", safePhase.outcome ? [safePhase.outcome] : []);
 
-  for (const detailSection of phase.detailSections ?? []) {
-    appendDetailSection(details, detailSection.title, detailSection.items);
+  for (const detailSection of toArray(safePhase.detailSections)) {
+    const safeSection = isObject(detailSection) ? detailSection : {};
+
+    appendDetailSection(details, safeSection.title, safeSection.items);
+  }
+
+  if (details.childElementCount === 0) {
+    toggleButton.hidden = true;
+    details.hidden = true;
   }
 
   header.append(title, toggleButton);
@@ -76,7 +105,7 @@ function createRoadmapCard(phase, { isExpanded = false, onToggle } = {}) {
   return card;
 }
 
-export function renderRoadmapRail({ data, state, callbacks }) {
+export function renderRoadmapRail({ data, state = {}, callbacks = {} }) {
   if (!Array.isArray(data)) {
     throw new TypeError("Roadmap data must be an array.");
   }
@@ -94,10 +123,14 @@ export function renderRoadmapRail({ data, state, callbacks }) {
 
   track.className = "roadmap-rail__track";
 
-  for (const phase of data) {
+  for (const [index, phase] of data.entries()) {
+    const safePhase = isObject(phase) ? phase : {};
+    const phaseId = getText(safePhase.id, `phase-${index + 1}`);
+
     track.append(
-      createRoadmapCard(phase, {
-        isExpanded: state.expandedRoadmapIds.has(phase.id),
+      createRoadmapCard(safePhase, {
+        index,
+        isExpanded: state.expandedRoadmapIds?.has(phaseId) ?? false,
         onToggle: callbacks.onToggleRoadmapPhase,
       }),
     );

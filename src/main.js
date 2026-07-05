@@ -36,9 +36,14 @@ dashboard.regions.status.append(statusMessage);
 app.replaceChildren(dashboard.element);
 
 function getEnabledSections(settings) {
-  return settings.sections
+  const sections = Array.isArray(settings.sections) ? settings.sections : [];
+
+  return sections
     .filter((section) => section.enabled)
-    .sort((firstSection, secondSection) => firstSection.order - secondSection.order);
+    .sort(
+      (firstSection, secondSection) =>
+        (firstSection.order ?? 0) - (secondSection.order ?? 0),
+    );
 }
 
 async function loadDataForSections(sections) {

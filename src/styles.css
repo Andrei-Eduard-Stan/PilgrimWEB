@@ -12,6 +12,24 @@
     padding: 0;
 }
 
+* {
+  scrollbar-color: #666 #111;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  height: 0.65rem;
+  width: 0.65rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
 body {
   min-height: 100dvh;
   margin: 0;
@@ -103,6 +121,17 @@ p {
   color: #b8b8b8;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+span,
+strong {
+  overflow-wrap: break-word;
+}
+
 .system-status {
   margin: 0;
   color: #f5f5f5;
@@ -143,6 +172,7 @@ p {
   overflow: hidden;
   padding: 0.9rem;
   scroll-snap-align: start;
+  transition: flex-basis 180ms ease, padding 180ms ease;
 }
 
 .pilgrimage-card.is-expanded {
@@ -173,6 +203,11 @@ p {
   font: inherit;
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
+}
+
+.pilgrimage-card__toggle[hidden],
+.roadmap-card__toggle[hidden] {
+  display: none;
 }
 
 .pilgrimage-card__toggle:hover,
@@ -338,6 +373,11 @@ p {
   font-size: 0.875rem;
 }
 
+.requirement-group__empty {
+  color: #888;
+  font-size: 0.875rem;
+}
+
 .roadmap-rail__track {
   display: flex;
   gap: 1rem;
@@ -359,6 +399,7 @@ p {
   overflow: hidden;
   padding: 0.9rem;
   scroll-snap-align: start;
+  transition: flex-basis 180ms ease, padding 180ms ease;
 }
 
 .roadmap-card.is-expanded {
@@ -401,6 +442,14 @@ p {
 .app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-card__meta,
 .app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-card__timeframe {
   margin-block-start: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-region--workspace,
+  .pilgrimage-card,
+  .roadmap-card {
+    transition: none;
+  }
 }
 
 .roadmap-card__header {

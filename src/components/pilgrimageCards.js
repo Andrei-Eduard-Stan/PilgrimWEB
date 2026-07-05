@@ -1,4 +1,28 @@
+function toArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function getText(value, fallback) {
+  return typeof value === "string" && value.trim() ? value : fallback;
+}
+
+function isObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value);
+}
+
+function appendIfPresent(parent, child) {
+  if (child) {
+    parent.append(child);
+  }
+}
+
 function createListBlock(titleText, items) {
+  const safeItems = toArray(items).filter(Boolean);
+
+  if (safeItems.length === 0) {
+    return null;
+  }
+
   const block = document.createElement("section");
   const title = document.createElement("h4");
   const list = document.createElement("ul");
@@ -6,7 +30,7 @@ function createListBlock(titleText, items) {
   block.className = "pilgrimage-card__detail-block";
   title.textContent = titleText;
 
-  for (const item of items) {
+  for (const item of safeItems) {
     const listItem = document.createElement("li");
 
     listItem.textContent = item;
@@ -19,6 +43,12 @@ function createListBlock(titleText, items) {
 }
 
 function createLearningPathBlock(learningPath) {
+  const safeLearningPath = toArray(learningPath);
+
+  if (safeLearningPath.length === 0) {
+    return null;
+  }
+
   const block = document.createElement("section");
   const title = document.createElement("h4");
 
@@ -27,14 +57,21 @@ function createLearningPathBlock(learningPath) {
 
   block.append(title);
 
-  for (const phase of learningPath) {
+  for (const phase of safeLearningPath) {
+    const safePhase = isObject(phase) ? phase : {};
+    const phaseItems = toArray(safePhase.items).filter(Boolean);
+
+    if (phaseItems.length === 0) {
+      continue;
+    }
+
     const phaseTitle = document.createElement("p");
     const phaseList = document.createElement("ul");
 
     phaseTitle.className = "pilgrimage-card__phase-title";
-    phaseTitle.textContent = phase.phase;
+    phaseTitle.textContent = getText(safePhase.phase, "Phase");
 
-    for (const item of phase.items) {
+    for (const item of phaseItems) {
       const listItem = document.createElement("li");
 
       listItem.textContent = item;
@@ -42,6 +79,10 @@ function createLearningPathBlock(learningPath) {
     }
 
     block.append(phaseTitle, phaseList);
+  }
+
+  if (block.childElementCount === 1) {
+    return null;
   }
 
   return block;
@@ -52,6 +93,10 @@ function formatLabel(key) {
 }
 
 function createProjectBlock(project) {
+  if (!isObject(project)) {
+    return null;
+  }
+
   const block = document.createElement("section");
   const title = document.createElement("h4");
   const name = document.createElement("p");
@@ -59,8 +104,8 @@ function createProjectBlock(project) {
 
   block.className = "pilgrimage-card__detail-block";
   title.textContent = "Project";
-  name.textContent = project.name;
-  description.textContent = project.description;
+  name.textContent = getText(project.name, "Project");
+  description.textContent = getText(project.description, "No project description provided.");
 
   block.append(title, name, description);
 
@@ -69,7 +114,7 @@ function createProjectBlock(project) {
       continue;
     }
 
-    block.append(createListBlock(formatLabel(key), value));
+    appendIfPresent(block, createListBlock(formatLabel(key), value));
   }
 
   return block;
@@ -77,8 +122,9 @@ function createProjectBlock(project) {
 
 export function createPilgrimageCard(
   pilgrimage,
-  { isExpanded = false, onToggle } = {},
+  { index = 0, isExpanded = false, onToggle } = {},
 ) {
+  const safePilgrimage = isObject(pilgrimage) ? pilgrimage : {};
   const card = document.createElement("article");
   const header = document.createElement("div");
   const title = document.createElement("h3");
@@ -86,13 +132,14 @@ export function createPilgrimageCard(
   const meta = document.createElement("p");
   const toggleButton = document.createElement("button");
   const details = document.createElement("div");
-  const detailsId = `${pilgrimage.id}-details`;
+  const pilgrimageId = getText(safePilgrimage.id, `pilgrimage-${index + 1}`);
+  const detailsId = `${pilgrimageId}-details`;
 
   card.className = isExpanded ? "pilgrimage-card is-expanded" : "pilgrimage-card";
-  card.dataset.pilgrimageId = pilgrimage.id;
+  card.dataset.pilgrimageId = pilgrimageId;
 
   header.className = "pilgrimage-card__header";
-  title.textContent = pilgrimage.title;
+  title.textContent = getText(safePilgrimage.title, "Untitled Pilgrimage");
 
   toggleButton.className = "pilgrimage-card__toggle";
   toggleButton.type = "button";
@@ -100,14 +147,14 @@ export function createPilgrimageCard(
   toggleButton.setAttribute("aria-expanded", String(isExpanded));
   toggleButton.setAttribute("aria-controls", detailsId);
   toggleButton.addEventListener("click", () => {
-    onToggle?.(pilgrimage.id);
+    onToggle?.(pilgrimageId);
   });
 
   subtitle.className = "pilgrimage-card__subtitle";
-  subtitle.textContent = pilgrimage.subtitle;
+  subtitle.textContent = getText(safePilgrimage.subtitle, "No summary provided.");
 
   meta.className = "pilgrimage-card__meta";
-  meta.textContent = [pilgrimage.difficulty, pilgrimage.estimatedTime]
+  meta.textContent = [safePilgrimage.difficulty, safePilgrimage.estimatedTime]
     .filter(Boolean)
     .join(" / ");
 
@@ -115,16 +162,13 @@ export function createPilgrimageCard(
   details.className = "pilgrimage-card__details";
   details.hidden = !isExpanded;
 
-  if (pilgrimage.techStack?.length) {
-    details.append(createListBlock("Tech Stack", pilgrimage.techStack));
-  }
+  appendIfPresent(details, createListBlock("Tech Stack", safePilgrimage.techStack));
+  appendIfPresent(details, createLearningPathBlock(safePilgrimage.learningPath));
+  appendIfPresent(details, createProjectBlock(safePilgrimage.project));
 
-  if (pilgrimage.learningPath?.length) {
-    details.append(createLearningPathBlock(pilgrimage.learningPath));
-  }
-
-  if (pilgrimage.project) {
-    details.append(createProjectBlock(pilgrimage.project));
+  if (details.childElementCount === 0) {
+    toggleButton.hidden = true;
+    details.hidden = true;
   }
 
   header.append(title, toggleButton);
@@ -139,7 +183,7 @@ export function createPilgrimageCard(
   return card;
 }
 
-export function renderPilgrimageRail({ data, state, callbacks }) {
+export function renderPilgrimageRail({ data, state = {}, callbacks = {} }) {
   if (!Array.isArray(data)) {
     throw new TypeError("Pilgrimage data must be an array.");
   }
@@ -157,10 +201,14 @@ export function renderPilgrimageRail({ data, state, callbacks }) {
 
   track.className = "pilgrimage-rail__track";
 
-  for (const pilgrimage of data) {
+  for (const [index, pilgrimage] of data.entries()) {
+    const safePilgrimage = isObject(pilgrimage) ? pilgrimage : {};
+    const pilgrimageId = getText(safePilgrimage.id, `pilgrimage-${index + 1}`);
+
     track.append(
-      createPilgrimageCard(pilgrimage, {
-        isExpanded: state.expandedIds.has(pilgrimage.id),
+      createPilgrimageCard(safePilgrimage, {
+        index,
+        isExpanded: state.expandedIds?.has(pilgrimageId) ?? false,
         onToggle: callbacks.onTogglePilgrimage,
       }),
     );
