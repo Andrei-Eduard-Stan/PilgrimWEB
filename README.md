@@ -1,5 +1,7 @@
 # Infrastructure Pilgrimage Roadmap
 
+> https://andrei-eduard-stan.github.io/PilgrimWEB/
+
 A modular, JSON-driven roadmap dashboard for infrastructure, systems
 engineering, automation, and platform learning.
 
