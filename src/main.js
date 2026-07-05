@@ -1,5 +1,6 @@
 import { sectionRegistry } from "./config/sectionRegistry.js";
 import { loadJSON } from "./utils/loadJSON.js";
+import { createDashboardShell } from "./components/dashboardShell.js";
 
 const app = document.querySelector("#app");
 
@@ -9,22 +10,29 @@ if (!app) {
 
 const dataSources = {
   pilgrimages: new URL("./data/pilgrimages.json", import.meta.url),
+  requirements: new URL("./data/requirements.json", import.meta.url),
+  roadmap: new URL("./data/roadmap.json", import.meta.url),
 };
 
 const appState = {
   expandedIds: new Set(),
+  expandedRoadmapIds: new Set(),
   expansionMode: "single",
 };
 
+const dashboard = createDashboardShell();
 const statusMessage = document.createElement("p");
-const workspaceRegion = document.createElement("div");
+const contentRegions = {
+  workspace: dashboard.regions.workspace,
+  sidebar: dashboard.regions.sidebar,
+};
 
 statusMessage.className = "system-status";
 statusMessage.textContent = "system status: loading";
 
-workspaceRegion.className = "app-region app-region--workspace";
+dashboard.regions.status.append(statusMessage);
 
-app.replaceChildren(statusMessage, workspaceRegion);
+app.replaceChildren(dashboard.element);
 
 function getEnabledSections(settings) {
   return settings.sections
@@ -59,6 +67,12 @@ async function loadDataForSections(sections) {
   return dataByKey;
 }
 
+function clearContentRegions() {
+  for (const region of Object.values(contentRegions)) {
+    region.replaceChildren();
+  }
+}
+
 function toggleExpandedId(itemId) {
   const isAlreadyExpanded = appState.expandedIds.has(itemId);
 
@@ -71,8 +85,20 @@ function toggleExpandedId(itemId) {
   }
 }
 
+function toggleRoadmapPhaseId(phaseId) {
+  const isAlreadyExpanded = appState.expandedRoadmapIds.has(phaseId);
+
+  if (appState.expansionMode === "single") {
+    appState.expandedRoadmapIds.clear();
+  }
+
+  if (!isAlreadyExpanded) {
+    appState.expandedRoadmapIds.add(phaseId);
+  }
+}
+
 function renderSections({ sections, dataByKey, settings }) {
-  workspaceRegion.replaceChildren();
+  clearContentRegions();
   appState.expansionMode = settings.interaction?.expansionMode ?? "single";
 
   for (const section of sections) {
@@ -87,10 +113,20 @@ function renderSections({ sections, dataByKey, settings }) {
           toggleExpandedId(pilgrimageId);
           renderSections({ sections, dataByKey, settings });
         },
+        onToggleRoadmapPhase: (phaseId) => {
+          toggleRoadmapPhaseId(phaseId);
+          renderSections({ sections, dataByKey, settings });
+        },
       },
     });
 
-    workspaceRegion.append(sectionElement);
+    const targetRegion = contentRegions[section.region];
+
+    if (!targetRegion) {
+      throw new Error(`No dashboard region found for section: ${section.region}`);
+    }
+
+    targetRegion.append(sectionElement);
   }
 }
 

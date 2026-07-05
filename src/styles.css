@@ -12,37 +12,81 @@
     padding: 0;
 }
 
-body{
-    min-height:100vh;
-    margin:0;
-    background-color: #1a1a1a;
-    color: #f5f5f5;
-    line-height:1.5;
+body {
+  min-height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  line-height: 1.5;
 }
 
-header, main {
-    width: min(960px, calc(100% - 2rem));
-    margin-inline:auto;
+#app {
+  min-height: 0;
+  height: 100dvh;
 }
 
-header {
-    padding-block: 4rem 2rem;
-    border-bottom: 1px solid #444;
+.dashboard-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.75rem;
+  min-height: 0;
+  height: 100dvh;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  padding: 0.75rem;
 }
 
-main {
-    padding-block: 2rem;
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #444;
+  background-color: #111;
+  padding: 0.75rem 1rem;
+}
+
+.dashboard-header__identity {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.dashboard-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.32fr);
+  gap: 0.75rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-region {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-region--workspace {
+  grid-template-rows: minmax(0, 1fr) minmax(0, 0.9fr);
+}
+
+.app-region--sidebar {
+  border: 1px solid #333;
+  background-color: #0f0f0f;
+  padding: 0.75rem;
+  overflow: hidden;
 }
 
 h1{
-    margin-block: 0.5rem;
-    font-size: 2.5rem;
+    margin-block: 0.25rem 0;
+    font-size: clamp(1.5rem, 2.25vw, 2rem);
     line-height: 1.2;
 }
 
 h2{
-    margin-block: 0.5rem;
-    font-size: 2rem;
+    margin-block: 0;
+    font-size: 1.25rem;
     line-height: 1.3;
 }
 
@@ -60,31 +104,35 @@ p {
   content: "> ";
 }
 
-.app-region {
-  display: grid;
-  gap: 1rem;
-}
-
 .dashboard-section {
   border-top: 1px solid #444;
-  padding-block: 1rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  overflow: hidden;
+  padding-block: 0.75rem 0;
 }
 
 .pilgrimage-rail__track {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  padding-block: 0.75rem;
+  overflow-y: hidden;
+  min-height: 0;
+  padding-block: 0.5rem;
   scroll-snap-type: x proximity;
 }
 
 .pilgrimage-card {
   flex: 0 0 18rem;
-  min-height: 10rem;
-  max-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
   border: 1px solid #444;
   background-color: #111;
-  padding: 1rem;
+  overflow: hidden;
+  padding: 0.9rem;
   scroll-snap-align: start;
 }
 
@@ -97,10 +145,15 @@ p {
   align-items: start;
   justify-content: space-between;
   gap: 1rem;
+  min-height: 3.2rem;
 }
 
 .pilgrimage-card h3 {
+  display: -webkit-box;
+  overflow: hidden;
   font-size: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .pilgrimage-card__toggle {
@@ -125,6 +178,14 @@ p {
   margin-block-start: 0.75rem;
 }
 
+.pilgrimage-card__subtitle {
+  display: -webkit-box;
+  min-height: 6rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
 .pilgrimage-card__meta {
   color: #f5f5f5;
   font-size: 0.75rem;
@@ -134,7 +195,8 @@ p {
 .pilgrimage-card__details {
   display: grid;
   gap: 1rem;
-  max-height: 13rem;
+  flex: 1;
+  min-height: 0;
   margin-block-start: 1rem;
   overflow-y: auto;
   border-top: 1px solid #333;
@@ -171,12 +233,240 @@ p {
   font-weight: 700;
 }
 
-@media (max-width: 600px) {
-  header {
-    padding-block: 2rem 1.5rem;
+@media (max-width: 800px) {
+  body {
+    overflow: auto;
+  }
+
+  .dashboard-shell {
+    min-height: auto;
+  }
+
+  .dashboard-header {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .dashboard-body {
+    grid-template-columns: 1fr;
+  }
+
+  .app-region {
+    overflow: visible;
   }
 
   h1 {
     font-size: 2rem;
+  }
+}
+
+.requirements-panel {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.requirement-group {
+  border-top: 1px solid #333;
+  padding-block: 0.75rem;
+}
+
+.requirement-group summary {
+  display: grid;
+  gap: 0.25rem;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.requirement-group__description {
+  color: #b8b8b8;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.requirement-group summary:focus-visible {
+  outline: 2px solid #f5f5f5;
+  outline-offset: 0.25rem;
+}
+
+.requirement-group p {
+  margin-block-start: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.requirement-group ul {
+  display: grid;
+  gap: 0.75rem;
+  margin-block-start: 0.75rem;
+  padding-inline-start: 1rem;
+}
+
+.requirement-group strong {
+  color: #f5f5f5;
+  font-size: 0.875rem;
+}
+
+.roadmap-rail__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0;
+  padding-block: 0.5rem;
+  scroll-snap-type: x proximity;
+}
+
+.roadmap-card {
+  flex: 0 0 18rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid #444;
+  background-color: #111;
+  overflow: hidden;
+  padding: 0.9rem;
+  scroll-snap-align: start;
+}
+
+.roadmap-card.is-expanded {
+  flex-basis: min(34rem, 80vw);
+}
+
+.roadmap-card h3 {
+  font-size: 1rem;
+}
+
+.roadmap-card p {
+  margin-block-start: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.roadmap-card__focus {
+  display: -webkit-box;
+  min-height: 4rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.roadmap-card__header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2rem;
+}
+
+.roadmap-card__header h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.roadmap-card__timeframe {
+  min-height: 1.5rem;
+}
+
+.roadmap-card__toggle {
+  border: 1px solid #666;
+  background: transparent;
+  color: #f5f5f5;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.roadmap-card__toggle:hover,
+.roadmap-card__toggle:focus-visible {
+  border-color: #f5f5f5;
+  outline: 2px solid #f5f5f5;
+  outline-offset: 2px;
+}
+
+.roadmap-card__details {
+  display: grid;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  margin-block-start: 1rem;
+  overflow-y: auto;
+  border-top: 1px solid #333;
+  padding-block-start: 1rem;
+}
+
+.roadmap-card__details[hidden] {
+  display: none;
+}
+
+.roadmap-card__detail-block {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.roadmap-card__detail-block h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.roadmap-card__detail-block ul {
+  display: grid;
+  gap: 0.25rem;
+  padding-inline-start: 1rem;
+}
+
+.roadmap-card__detail-block li {
+  color: #b8b8b8;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 800px) {
+  #app {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .dashboard-shell {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .dashboard-body {
+    overflow: visible;
+  }
+
+  .app-region--workspace {
+    grid-template-rows: none;
+  }
+
+  .app-region--sidebar,
+  .dashboard-section,
+  .requirements-panel {
+    height: auto;
+    overflow: visible;
+  }
+
+  .pilgrimage-rail__track,
+  .roadmap-rail__track {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .pilgrimage-card,
+  .roadmap-card {
+    height: auto;
+    min-height: 12rem;
+  }
+
+  .pilgrimage-card__details,
+  .roadmap-card__details {
+    flex: none;
+    max-height: 18rem;
   }
 }

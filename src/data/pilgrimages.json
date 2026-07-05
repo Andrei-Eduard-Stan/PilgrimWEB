@@ -1,16 +1,16 @@
 [
   {
     "id": "windows-infrastructure",
-    "title": "Windows Infrastructure Pilgrimage",
+    "title": "Windows Infrastructure",
     "icon": "server",
-    "subtitle": "Windows identity, networking, endpoint management, and virtualisation",
+    "subtitle": "Windows Server, identity, networking, endpoint management, and hybrid administration.",
     "difficulty": "Intermediate",
-    "estimatedTime": "3-6 months",
+    "estimatedTime": "0-3 months",
     "techStack": [
       "Windows Server",
-      "Active Directory",
       "DNS",
       "DHCP",
+      "Active Directory",
       "Group Policy",
       "PowerShell",
       "Entra ID",
@@ -20,40 +20,231 @@
     ],
     "learningPath": [
       {
-        "phase": "Phase 1",
-        "items": ["AZ-800", "AZ-801"]
+        "phase": "Foundation",
+        "items": [
+          "Windows Server roles and features",
+          "Static IP configuration",
+          "DNS and DHCP fundamentals",
+          "Domain controller setup"
+        ]
       },
       {
-        "phase": "Phase 2",
-        "items": ["AZ-104"]
+        "phase": "Identity and Policy",
+        "items": [
+          "Active Directory users, groups, and OUs",
+          "Group Policy processing",
+          "File shares and NTFS permissions",
+          "Troubleshooting with Event Viewer, gpresult, and RSOP"
+        ]
       },
       {
-        "phase": "Phase 3",
-        "items": ["MD-102"]
+        "phase": "Modern Management",
+        "items": [
+          "Entra ID fundamentals",
+          "Intune device policies",
+          "Autopilot concepts",
+          "SCCM and co-management basics"
+        ]
       }
     ],
     "project": {
-      "name": "Mini Liontrust",
-      "description": "Build a small enterprise-style Windows infrastructure environment.",
-      "environment": ["DC01", "APP01", "CLIENT01", "CLIENT02"],
+      "name": "Mini Enterprise Environment",
+      "description": "Build a small enterprise-style Windows lab that mirrors a realistic support and infrastructure environment.",
+      "environment": [
+        "DC01",
+        "APP01",
+        "CLIENT01",
+        "CLIENT02"
+      ],
       "features": [
-        "Active Directory",
-        "Group Policies",
-        "DNS",
-        "DHCP",
-        "Intune",
+        "Active Directory domain",
+        "DNS zones and records",
+        "DHCP scope and reservations",
+        "OU structure",
+        "Group Policy objects",
+        "Mapped drives",
+        "File share permissions",
         "User onboarding",
-        "Device onboarding"
+        "Device onboarding",
+        "Endpoint management notes"
+      ],
+      "commands": [
+        "ipconfig /all",
+        "ipconfig /release",
+        "ipconfig /renew",
+        "nslookup",
+        "Resolve-DnsName",
+        "gpupdate /force",
+        "gpresult /r"
       ]
     }
   },
   {
-    "id": "linux",
-    "title": "Linux Pilgrimage",
+    "id": "powershell-automation",
+    "title": "PowerShell Automation",
     "icon": "terminal",
-    "subtitle": "Linux administration, services, networking, and containers",
-    "difficulty": "Foundational to Intermediate",
+    "subtitle": "Automation for Windows administration, identity operations, reporting, and repeatable support workflows.",
+    "difficulty": "Intermediate",
     "estimatedTime": "3-6 months",
+    "techStack": [
+      "PowerShell 7",
+      "Variables",
+      "Functions",
+      "Modules",
+      "Objects",
+      "Pipelines",
+      "CSV",
+      "JSON",
+      "REST APIs",
+      "Microsoft Graph",
+      "Active Directory",
+      "Exchange Online",
+      "Error Handling",
+      "Logging"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "PowerShell basics",
+          "Objects and pipelines",
+          "Variables and loops",
+          "Functions and parameters"
+        ]
+      },
+      {
+        "phase": "Administration",
+        "items": [
+          "Active Directory module",
+          "CSV import and export",
+          "Bulk user creation",
+          "Group membership reporting"
+        ]
+      },
+      {
+        "phase": "Toolmaking",
+        "items": [
+          "Reusable modules",
+          "Structured logging",
+          "Try/catch error handling",
+          "Microsoft Graph API basics"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Enterprise Automation Toolkit",
+      "description": "Create a PowerShell toolkit that automates common joiner, mover, leaver, audit, and reporting tasks.",
+      "modules": [
+        "UserProvisioning",
+        "GroupAuditing",
+        "LicenseReporting",
+        "MailboxReporting",
+        "DeviceReporting"
+      ],
+      "scripts": [
+        "New-LabUser.ps1",
+        "Disable-LabUser.ps1",
+        "Get-InactiveUsers.ps1",
+        "Get-GroupMembershipReport.ps1",
+        "Test-DnsDhcpHealth.ps1"
+      ],
+      "features": [
+        "CSV-driven onboarding",
+        "Home folder creation",
+        "Group assignment",
+        "Leaver disable workflow",
+        "Inactive account export",
+        "HTML or CSV reports",
+        "Reusable helper functions"
+      ],
+      "package": [
+        "Install-Module AndreiTools"
+      ]
+    }
+  },
+  {
+    "id": "git-github",
+    "title": "Git and GitHub",
+    "icon": "git-branch",
+    "subtitle": "Version control, documentation, branching, collaboration, releases, and public portfolio evidence.",
+    "difficulty": "Foundational",
+    "estimatedTime": "3-6 months",
+    "techStack": [
+      "Git",
+      "Git Bash",
+      "GitHub",
+      "Branches",
+      "Commits",
+      "Pull Requests",
+      "Issues",
+      "Releases",
+      "Markdown",
+      "README",
+      "GitHub Pages",
+      "GitHub Actions"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "git status",
+          "git add",
+          "git commit",
+          "git log",
+          "git diff"
+        ]
+      },
+      {
+        "phase": "Collaboration",
+        "items": [
+          "Branches",
+          "Pull requests",
+          "Merge conflicts",
+          "Issues",
+          "Code review basics"
+        ]
+      },
+      {
+        "phase": "Portfolio",
+        "items": [
+          "README writing",
+          "Repository structure",
+          "Releases",
+          "GitHub Pages deployment"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Personal Infrastructure Repository",
+      "description": "Organise infrastructure learning, scripts, lab notes, diagrams, and deployment evidence in a clear GitHub portfolio.",
+      "structure": [
+        "homelab/",
+        "powershell/",
+        "python/",
+        "terraform/",
+        "ansible/",
+        "docker/",
+        "kubernetes/",
+        "docs/"
+      ],
+      "features": [
+        "Small focused commits",
+        "Clean README",
+        "Lab diagrams",
+        "Troubleshooting notes",
+        "Screenshots",
+        "Release tags",
+        "GitHub Pages site"
+      ]
+    }
+  },
+  {
+    "id": "linux-infrastructure",
+    "title": "Linux Infrastructure",
+    "icon": "terminal-square",
+    "subtitle": "Linux administration, service management, shell usage, networking, and server troubleshooting.",
+    "difficulty": "Foundational to Intermediate",
+    "estimatedTime": "6-9 months",
     "techStack": [
       "Ubuntu",
       "Debian",
@@ -62,32 +253,553 @@
       "SSH",
       "systemd",
       "Networking",
+      "Logs",
+      "Permissions",
       "Git",
       "Docker"
     ],
     "learningPath": [
       {
-        "phase": "Phase 1",
-        "items": ["Linux Essentials"]
+        "phase": "Foundation",
+        "items": [
+          "Linux filesystem",
+          "Users and groups",
+          "Permissions",
+          "Package management",
+          "SSH"
+        ]
       },
       {
-        "phase": "Phase 2",
-        "items": ["RHCSA"]
+        "phase": "Operations",
+        "items": [
+          "systemd services",
+          "journalctl logs",
+          "Networking commands",
+          "Firewall basics",
+          "Backups"
+        ]
       },
       {
-        "phase": "Phase 3",
-        "items": ["RHCE optional"]
+        "phase": "Certification Track",
+        "items": [
+          "Linux Essentials",
+          "RHCSA",
+          "RHCE optional"
+        ]
       }
     ],
     "project": {
       "name": "Linux Services Platform",
-      "description": "Build and operate a small Linux-hosted services environment.",
+      "description": "Build a small Linux-hosted services environment and document how to operate and recover it.",
       "services": [
         "Nginx",
         "MariaDB",
         "Docker",
         "SSH",
         "Monitoring"
+      ],
+      "features": [
+        "Service install and configuration",
+        "systemd unit management",
+        "Firewall rules",
+        "SSH hardening",
+        "Log reading",
+        "Backup and restore test",
+        "Broken service recovery"
+      ]
+    }
+  },
+  {
+    "id": "python-automation",
+    "title": "Python Automation",
+    "icon": "code",
+    "subtitle": "Data processing, API integrations, reporting, dashboards, and infrastructure intelligence.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "6-12 months",
+    "techStack": [
+      "Python",
+      "Requests",
+      "Pandas",
+      "Logging",
+      "JSON",
+      "YAML",
+      "SQLite",
+      "Jinja2",
+      "FastAPI",
+      "SQLAlchemy",
+      "Graph APIs"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "Python syntax",
+          "Functions",
+          "Files",
+          "Virtual environments",
+          "Error handling"
+        ]
+      },
+      {
+        "phase": "Automation",
+        "items": [
+          "Requests",
+          "JSON processing",
+          "CSV and Pandas",
+          "Logging",
+          "Report generation"
+        ]
+      },
+      {
+        "phase": "Applications",
+        "items": [
+          "FastAPI",
+          "SQLAlchemy",
+          "Dashboard APIs",
+          "Scheduled jobs"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Infrastructure Intelligence Platform",
+      "description": "Build a small reporting platform that consumes infrastructure data, stores it, and exposes useful views.",
+      "features": [
+        "Asset inventory",
+        "User reporting",
+        "Device reporting",
+        "Dashboard API",
+        "Alerting rules",
+        "CSV export",
+        "API integrations"
+      ],
+      "dataSources": [
+        "Static JSON sample data",
+        "CSV exports",
+        "Microsoft Graph API later",
+        "Monitoring API later"
+      ]
+    }
+  },
+  {
+    "id": "docker-containers",
+    "title": "Docker Containers",
+    "icon": "container",
+    "subtitle": "Container images, Compose stacks, volumes, networks, registries, and repeatable local services.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "9-12 months",
+    "techStack": [
+      "Docker Engine",
+      "Docker Compose",
+      "Images",
+      "Containers",
+      "Volumes",
+      "Networks",
+      "Registries",
+      "Security",
+      "Portainer",
+      "Nginx"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "Images and containers",
+          "Dockerfile basics",
+          "Bind mounts",
+          "Named volumes",
+          "Container logs"
+        ]
+      },
+      {
+        "phase": "Compose",
+        "items": [
+          "Multi-service stacks",
+          "Networks",
+          "Environment variables",
+          "Reverse proxy basics"
+        ]
+      },
+      {
+        "phase": "Operations",
+        "items": [
+          "Container updates",
+          "Registry workflow",
+          "Backup and restore",
+          "Container security basics"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Self-Hosted Operations Platform",
+      "description": "Build a Docker Compose platform for monitoring, documentation, and operational visibility.",
+      "services": [
+        "Grafana",
+        "Prometheus",
+        "Uptime Kuma",
+        "Wiki",
+        "Nginx",
+        "Portainer"
+      ],
+      "features": [
+        "Docker Compose stack",
+        "Persistent volumes",
+        "Internal networks",
+        "Reverse proxy",
+        "Health checks",
+        "Backup procedure",
+        "Rebuild-from-scratch documentation"
+      ]
+    }
+  },
+  {
+    "id": "cicd-pipelines",
+    "title": "CI/CD Pipelines",
+    "icon": "workflow",
+    "subtitle": "Automated checks, builds, packaging, deployment, secrets, and release workflows.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "9-15 months",
+    "techStack": [
+      "GitHub Actions",
+      "YAML",
+      "Linting",
+      "Testing",
+      "Artifacts",
+      "Packaging",
+      "Deployments",
+      "Secrets",
+      "Environments",
+      "Notifications"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "GitHub Actions workflow files",
+          "Triggers",
+          "Jobs",
+          "Steps",
+          "Runners"
+        ]
+      },
+      {
+        "phase": "Quality Gates",
+        "items": [
+          "Install dependencies",
+          "Run lint checks",
+          "Run build",
+          "Upload artifacts"
+        ]
+      },
+      {
+        "phase": "Delivery",
+        "items": [
+          "Deploy to GitHub Pages",
+          "Use secrets",
+          "Use environments",
+          "Create release notes"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Automated Delivery Pipeline",
+      "description": "Create a GitHub Actions pipeline that validates and deploys the roadmap website.",
+      "pipeline": [
+        "Push",
+        "Install",
+        "Lint",
+        "Build",
+        "Package",
+        "Deploy",
+        "Notify"
+      ],
+      "features": [
+        "Pull request checks",
+        "Production build validation",
+        "GitHub Pages deployment",
+        "Artifact retention",
+        "Environment protection later"
+      ]
+    }
+  },
+  {
+    "id": "terraform-iac",
+    "title": "Terraform IaC",
+    "icon": "boxes",
+    "subtitle": "Infrastructure as Code using providers, modules, variables, state, and repeatable environments.",
+    "difficulty": "Intermediate to Advanced",
+    "estimatedTime": "12-18 months",
+    "techStack": [
+      "Terraform",
+      "HCL",
+      "Providers",
+      "Resources",
+      "Modules",
+      "Variables",
+      "Outputs",
+      "State",
+      "Remote State",
+      "Workspaces"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "Terraform init",
+          "Plan",
+          "Apply",
+          "Destroy",
+          "Variables and outputs"
+        ]
+      },
+      {
+        "phase": "Structure",
+        "items": [
+          "Modules",
+          "Environments",
+          "State files",
+          "Remote backend concepts"
+        ]
+      },
+      {
+        "phase": "Certification Track",
+        "items": [
+          "Terraform Associate",
+          "Multi-environment design",
+          "Reusable infrastructure patterns"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Infrastructure Factory",
+      "description": "Create repeatable infrastructure definitions that can rebuild lab resources from code.",
+      "creates": [
+        "Networks",
+        "Virtual machines",
+        "DNS records",
+        "Storage",
+        "Security groups",
+        "Outputs"
+      ],
+      "features": [
+        "Environment variables",
+        "Reusable modules",
+        "Plan review",
+        "Remote state notes",
+        "Rebuild documentation"
+      ]
+    }
+  },
+  {
+    "id": "ansible-automation",
+    "title": "Ansible Automation",
+    "icon": "settings",
+    "subtitle": "Configuration management for Linux and Windows fleets using playbooks, roles, templates, and inventories.",
+    "difficulty": "Intermediate to Advanced",
+    "estimatedTime": "15-18 months",
+    "techStack": [
+      "Ansible",
+      "Playbooks",
+      "Roles",
+      "Inventories",
+      "Templates",
+      "Vault",
+      "Modules",
+      "Handlers",
+      "Automation",
+      "WinRM"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "Inventory files",
+          "Ad hoc commands",
+          "Playbooks",
+          "Variables",
+          "Facts"
+        ]
+      },
+      {
+        "phase": "Structure",
+        "items": [
+          "Roles",
+          "Templates",
+          "Handlers",
+          "Vault",
+          "Idempotency"
+        ]
+      },
+      {
+        "phase": "Enterprise Automation",
+        "items": [
+          "Linux patching",
+          "Windows management",
+          "User management",
+          "Service configuration"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Fleet Management Platform",
+      "description": "Manage Linux and Windows server configuration with one repeatable automation structure.",
+      "manages": [
+        "Linux servers",
+        "Windows servers",
+        "Updates",
+        "Users",
+        "Configurations",
+        "Services"
+      ],
+      "features": [
+        "Role-based layout",
+        "Template-managed configs",
+        "Vault secrets",
+        "Patch workflow",
+        "Compliance checks",
+        "Rollback notes"
+      ]
+    }
+  },
+  {
+    "id": "kubernetes-orchestration",
+    "title": "Kubernetes Orchestration",
+    "icon": "network",
+    "subtitle": "Container orchestration, cluster services, ingress, storage, secrets, and platform operations.",
+    "difficulty": "Advanced",
+    "estimatedTime": "18-24 months",
+    "techStack": [
+      "Kubernetes",
+      "K3s",
+      "Pods",
+      "Deployments",
+      "Services",
+      "Ingress",
+      "Helm",
+      "Storage",
+      "Secrets",
+      "Monitoring"
+    ],
+    "learningPath": [
+      {
+        "phase": "Foundation",
+        "items": [
+          "K3s setup",
+          "Pods",
+          "Deployments",
+          "Services",
+          "kubectl"
+        ]
+      },
+      {
+        "phase": "Platform",
+        "items": [
+          "Ingress",
+          "Storage classes",
+          "Secrets",
+          "Helm charts",
+          "Monitoring"
+        ]
+      },
+      {
+        "phase": "Certification Track",
+        "items": [
+          "Kubernetes essentials",
+          "CKA optional",
+          "Production-style operations"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Production-Style Kubernetes Cluster",
+      "description": "Deploy a small platform that runs monitored applications on a K3s or Kubernetes cluster.",
+      "applications": [
+        "Monitoring",
+        "Wiki",
+        "API",
+        "Dashboard"
+      ],
+      "features": [
+        "Ingress routing",
+        "Persistent storage",
+        "Secrets management",
+        "Helm deployment",
+        "Rolling updates",
+        "Node failure notes",
+        "Monitoring and alerting"
+      ]
+    }
+  },
+  {
+    "id": "enterprise-lab",
+    "title": "Integrated Enterprise Lab",
+    "icon": "layout-dashboard",
+    "subtitle": "A complete lab that connects Windows, Linux, automation, infrastructure code, deployment, and monitoring.",
+    "difficulty": "Advanced",
+    "estimatedTime": "24 months",
+    "techStack": [
+      "Proxmox",
+      "Windows",
+      "Linux",
+      "PowerShell",
+      "Python",
+      "GitHub",
+      "CI/CD",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Ansible",
+      "Grafana"
+    ],
+    "learningPath": [
+      {
+        "phase": "Integration",
+        "items": [
+          "Connect identity, automation, and infrastructure workflows",
+          "Document each system boundary",
+          "Use GitHub as the source of truth"
+        ]
+      },
+      {
+        "phase": "Operations",
+        "items": [
+          "Deploy applications",
+          "Configure monitoring",
+          "Test failure scenarios",
+          "Write runbooks"
+        ]
+      },
+      {
+        "phase": "Portfolio",
+        "items": [
+          "Architecture diagrams",
+          "Demo scripts",
+          "Troubleshooting notes",
+          "Deployment documentation"
+        ]
+      }
+    ],
+    "project": {
+      "name": "Andrei Enterprise Lab",
+      "description": "Build an end-to-end infrastructure lab that shows how requests become accounts, infrastructure, configured servers, deployed apps, and monitored services.",
+      "workflow": [
+        "New user request",
+        "PowerShell automation",
+        "AD account created",
+        "Terraform infrastructure provisioned",
+        "Ansible server configured",
+        "GitHub Actions application deployed",
+        "Grafana monitoring and alerting"
+      ],
+      "deliverables": [
+        "Architecture diagram",
+        "GitHub repository",
+        "PowerShell toolkit",
+        "Terraform modules",
+        "Ansible roles",
+        "Docker Compose stack",
+        "Kubernetes manifests",
+        "Monitoring dashboard",
+        "Runbooks"
       ]
     }
   }

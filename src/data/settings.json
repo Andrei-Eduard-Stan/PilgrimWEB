@@ -11,13 +11,13 @@
     },
     {
       "id": "roadmap",
-      "enabled": false, 
+      "enabled": true,
       "region": "workspace",
       "order": 2
     },
     {
       "id": "requirements",
-      "enabled": false,
+      "enabled": true,
       "region": "sidebar",
       "order": 1
     }

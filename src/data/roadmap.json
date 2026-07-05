@@ -1,0 +1,266 @@
+[
+  {
+    "id": "phase-1",
+    "phase": "Phase 1",
+    "timeframe": "0-3 months",
+    "mainFocus": "Windows infrastructure foundations and Git discipline.",
+    "skills": [
+      "Windows Server",
+      "DNS",
+      "DHCP",
+      "Active Directory",
+      "Group Policy basics",
+      "File shares and permissions",
+      "Git basics",
+      "Markdown documentation"
+    ],
+    "projects": [
+      "Mini Enterprise Environment",
+      "Infrastructure Pilgrimage Roadmap"
+    ],
+    "outcome": "You can build a working Windows domain, join clients, apply basic policies, document the lab, and save progress in Git.",
+    "weeklyHabits": [
+      "Make at least three Git commits per week",
+      "Document every lab change in Markdown",
+      "Capture one screenshot or command output for each completed lab task",
+      "Review one Windows Server, DNS, DHCP, AD, or GPO concept each week"
+    ],
+    "recommendedCourses": [
+      "Microsoft Learn Windows Server fundamentals",
+      "AZ-800 and AZ-801 learning content",
+      "MDN HTML and CSS basics for the roadmap site",
+      "Git and GitHub fundamentals"
+    ],
+    "projectDeliverables": [
+      "Domain controller VM",
+      "DNS forward and reverse lookup notes",
+      "DHCP scope and reservation notes",
+      "OU structure",
+      "Basic GPO list",
+      "README setup instructions"
+    ],
+    "githubDeliverables": [
+      "Clean repository structure",
+      "Small descriptive commits",
+      "README with lab overview",
+      "docs/windows-lab.md",
+      "screenshots/ folder"
+    ],
+    "confidenceCheckpoint": "You can explain how a Windows client receives an IP address, resolves the domain controller, joins the domain, and receives Group Policy."
+  },
+  {
+    "id": "phase-2",
+    "phase": "Phase 2",
+    "timeframe": "3-6 months",
+    "mainFocus": "PowerShell automation, Entra ID concepts, Intune basics, and operational reporting.",
+    "skills": [
+      "PowerShell functions",
+      "PowerShell modules",
+      "CSV import and export",
+      "Active Directory module",
+      "Error handling",
+      "Logging",
+      "Microsoft Graph basics",
+      "Entra ID",
+      "Intune fundamentals"
+    ],
+    "projects": [
+      "Enterprise Automation Toolkit",
+      "Endpoint Policy Notes",
+      "User Lifecycle Scripts"
+    ],
+    "outcome": "You can automate common account and reporting workflows instead of completing every task manually.",
+    "weeklyHabits": [
+      "Write or improve one PowerShell script each week",
+      "Use Git branches for script changes",
+      "Test scripts against lab users before documenting them",
+      "Write down every error and how you fixed it"
+    ],
+    "recommendedCourses": [
+      "Learn PowerShell in a Month of Lunches",
+      "PowerShell Scripting and Toolmaking",
+      "AZ-040 PowerShell administration content",
+      "MD-102 endpoint administration content"
+    ],
+    "projectDeliverables": [
+      "New user script",
+      "Leaver disable script",
+      "Group membership report",
+      "Inactive users report",
+      "Intune policy notes",
+      "Entra ID comparison notes"
+    ],
+    "githubDeliverables": [
+      "powershell/ folder",
+      "Sample CSV files",
+      "Script usage examples",
+      "Troubleshooting notes",
+      "CHANGELOG.md"
+    ],
+    "confidenceCheckpoint": "You can explain a joiner, mover, and leaver process and show which parts your PowerShell scripts automate."
+  },
+  {
+    "id": "phase-3",
+    "phase": "Phase 3",
+    "timeframe": "6-12 months",
+    "mainFocus": "Linux administration, Python automation, and Docker-based services.",
+    "skills": [
+      "Linux filesystem",
+      "Bash",
+      "SSH",
+      "systemd",
+      "Linux networking",
+      "Python",
+      "Requests",
+      "Pandas",
+      "FastAPI",
+      "Docker",
+      "Docker Compose"
+    ],
+    "projects": [
+      "Linux Services Platform",
+      "Infrastructure Intelligence Platform",
+      "Self-Hosted Operations Platform"
+    ],
+    "outcome": "You can administer Linux services, process infrastructure data with Python, and run repeatable local services with Docker Compose.",
+    "weeklyHabits": [
+      "Use Linux terminal commands daily",
+      "Read service logs with journalctl",
+      "Write one small Python automation task per week",
+      "Containerize one service or tool"
+    ],
+    "recommendedCourses": [
+      "Linux Essentials",
+      "RHCSA study material",
+      "Python Crash Course",
+      "Automate the Boring Stuff",
+      "Docker Deep Dive"
+    ],
+    "projectDeliverables": [
+      "Nginx service",
+      "MariaDB service",
+      "SSH hardening notes",
+      "Python reporting script",
+      "FastAPI prototype",
+      "Docker Compose monitoring stack"
+    ],
+    "githubDeliverables": [
+      "linux/ folder",
+      "python/ folder",
+      "docker/ folder",
+      "Service recovery notes",
+      "docker-compose.yml examples"
+    ],
+    "confidenceCheckpoint": "You can recover a broken Linux service, inspect logs, explain the fix, and commit the documented result."
+  },
+  {
+    "id": "phase-4",
+    "phase": "Phase 4",
+    "timeframe": "12-18 months",
+    "mainFocus": "CI/CD, Infrastructure as Code, and configuration management.",
+    "skills": [
+      "GitHub Actions",
+      "YAML",
+      "Build checks",
+      "Artifacts",
+      "Secrets",
+      "Terraform",
+      "HCL",
+      "Terraform modules",
+      "State",
+      "Ansible",
+      "Playbooks",
+      "Roles",
+      "Vault"
+    ],
+    "projects": [
+      "Automated Delivery Pipeline",
+      "Infrastructure Factory",
+      "Fleet Management Platform"
+    ],
+    "outcome": "You can define infrastructure and configuration in code, run automated checks, and deploy changes repeatably.",
+    "weeklyHabits": [
+      "Review every infrastructure change with git diff before committing",
+      "Run builds or checks before push",
+      "Keep secrets out of Git",
+      "Document rollback steps for every automation workflow"
+    ],
+    "recommendedCourses": [
+      "GitHub Actions fundamentals",
+      "Terraform Associate study path",
+      "Ansible Fundamentals",
+      "CI/CD design basics"
+    ],
+    "projectDeliverables": [
+      "GitHub Actions build workflow",
+      "GitHub Pages deployment workflow",
+      "Terraform module skeleton",
+      "Ansible role skeleton",
+      "Environment variable documentation",
+      "Secret handling notes"
+    ],
+    "githubDeliverables": [
+      ".github/workflows/build.yml",
+      "terraform/ folder",
+      "ansible/ folder",
+      "docs/ci-cd.md",
+      "docs/iac.md"
+    ],
+    "confidenceCheckpoint": "You can explain how a Git push can trigger validation, build output, infrastructure planning, and deployment."
+  },
+  {
+    "id": "phase-5",
+    "phase": "Phase 5",
+    "timeframe": "18-24 months",
+    "mainFocus": "Kubernetes, monitoring, reliability, and integrated platform operations.",
+    "skills": [
+      "K3s",
+      "Kubernetes",
+      "Pods",
+      "Deployments",
+      "Services",
+      "Ingress",
+      "Helm",
+      "Storage",
+      "Secrets",
+      "Prometheus",
+      "Grafana",
+      "Runbooks"
+    ],
+    "projects": [
+      "Production-Style Kubernetes Cluster",
+      "Andrei Enterprise Lab",
+      "Monitoring and Alerting Platform"
+    ],
+    "outcome": "You can explain and demonstrate a complete infrastructure workflow from request to deployed and monitored service.",
+    "weeklyHabits": [
+      "Deploy or modify one service in the cluster each week",
+      "Write a runbook for every repeated operational task",
+      "Test one failure scenario each month",
+      "Review monitoring dashboards and alert quality"
+    ],
+    "recommendedCourses": [
+      "K3s fundamentals",
+      "Kubernetes essentials",
+      "CKA optional",
+      "Prometheus and Grafana fundamentals"
+    ],
+    "projectDeliverables": [
+      "K3s cluster",
+      "Ingress controller",
+      "Helm-deployed application",
+      "Persistent storage example",
+      "Grafana dashboard",
+      "Failure scenario write-up",
+      "End-to-end lab demo"
+    ],
+    "githubDeliverables": [
+      "kubernetes/ folder",
+      "monitoring/ folder",
+      "runbooks/ folder",
+      "architecture diagram",
+      "final portfolio README"
+    ],
+    "confidenceCheckpoint": "You can walk through the full lab and explain how identity, automation, infrastructure, deployment, and monitoring connect."
+  }
+]

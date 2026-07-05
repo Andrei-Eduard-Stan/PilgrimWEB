@@ -1,0 +1,202 @@
+[
+  {
+    "id": "hardware",
+    "title": "Hardware",
+    "description": "Physical capacity for development, local testing, and a small infrastructure lab.",
+    "items": [
+      {
+        "name": "Main workstation",
+        "detail": "Laptop or desktop that can comfortably run VS Code, browsers, Git, Node.js, and documentation tools."
+      },
+      {
+        "name": "Memory",
+        "detail": "16 GB is a workable minimum; 32 GB or more is preferred for multiple Windows and Linux virtual machines."
+      },
+      {
+        "name": "Storage",
+        "detail": "At least 250 GB free for repositories, ISO files, VM disks, screenshots, and exported lab backups."
+      },
+      {
+        "name": "External SSD",
+        "detail": "Useful for VM storage, lab backups, and moving lab assets between machines."
+      }
+    ]
+  },
+  {
+    "id": "virtualisation",
+    "title": "Virtualisation",
+    "description": "The lab needs a safe place to create and destroy servers, clients, and test networks.",
+    "items": [
+      {
+        "name": "Hyper-V",
+        "detail": "Good first choice on Windows for DC01, APP01, Windows clients, and Linux VMs."
+      },
+      {
+        "name": "Proxmox",
+        "detail": "Strong later option for a dedicated homelab host and more realistic infrastructure practice."
+      },
+      {
+        "name": "Snapshots",
+        "detail": "Use snapshots before major changes so you can recover from broken services, GPO mistakes, and failed installs."
+      },
+      {
+        "name": "Isolated lab network",
+        "detail": "Keep lab domain services separate from your normal home network unless you know exactly what is being exposed."
+      }
+    ]
+  },
+  {
+    "id": "software",
+    "title": "Software",
+    "description": "Core tools used to build the website, document the lab, and automate infrastructure tasks.",
+    "items": [
+      {
+        "name": "VS Code",
+        "detail": "Primary editor for HTML, CSS, JavaScript, JSON, Markdown, PowerShell, Python, Terraform, and YAML."
+      },
+      {
+        "name": "Node.js",
+        "detail": "Required for Vite, local development, production builds, and future frontend tooling."
+      },
+      {
+        "name": "Git",
+        "detail": "Version control system used to save progress, compare changes, and build a portfolio history."
+      },
+      {
+        "name": "Git Bash",
+        "detail": "Preferred command-line environment for Git commands and consistent project workflow on Windows."
+      },
+      {
+        "name": "PowerShell 7",
+        "detail": "Modern PowerShell runtime for automation scripts, modules, API calls, and cross-platform scripting."
+      },
+      {
+        "name": "Windows Admin Center",
+        "detail": "Useful later for Windows Server administration and hybrid management practice."
+      }
+    ]
+  },
+  {
+    "id": "accounts-subscriptions",
+    "title": "Accounts and Subscriptions",
+    "description": "External services needed for source control, Microsoft learning, cloud identity, and deployment.",
+    "items": [
+      {
+        "name": "GitHub account",
+        "detail": "Hosts the repository, commit history, documentation, issues, releases, GitHub Pages, and Actions workflows."
+      },
+      {
+        "name": "Microsoft Learn account",
+        "detail": "Tracks learning progress across Windows Server, Azure, Entra ID, Intune, and PowerShell content."
+      },
+      {
+        "name": "Microsoft 365 developer tenant",
+        "detail": "Useful for Entra ID, Intune, Graph API, app registrations, users, groups, and policy testing."
+      },
+      {
+        "name": "Azure subscription",
+        "detail": "Optional early on, useful later for AZ-104, Terraform provider practice, and cloud infrastructure labs."
+      },
+      {
+        "name": "Docker Hub or container registry",
+        "detail": "Useful later for image publishing and container deployment workflows."
+      }
+    ]
+  },
+  {
+    "id": "licenses",
+    "title": "Licences",
+    "description": "Software licensing to plan for before the lab grows into Microsoft 365, Intune, or Windows Server work.",
+    "items": [
+      {
+        "name": "Windows evaluation media",
+        "detail": "Use official evaluation images for Windows Server and Windows client lab machines where appropriate."
+      },
+      {
+        "name": "Microsoft 365 test licensing",
+        "detail": "Needed for serious Entra ID, Intune, Conditional Access, Autopilot, and endpoint management testing."
+      },
+      {
+        "name": "Open source tools",
+        "detail": "Linux, Docker, Terraform, Ansible, Prometheus, Grafana, and many lab tools can be learned with free tooling."
+      }
+    ]
+  },
+  {
+    "id": "networking",
+    "title": "Networking",
+    "description": "Basic network design is required before domain services, Linux services, Docker, and Kubernetes make sense.",
+    "items": [
+      {
+        "name": "IP addressing plan",
+        "detail": "Document lab subnets, static server IPs, DHCP ranges, gateway addresses, and reserved addresses."
+      },
+      {
+        "name": "DNS plan",
+        "detail": "Document internal domain names, A records, CNAMEs, forwarders, and reverse lookup requirements."
+      },
+      {
+        "name": "DHCP scope design",
+        "detail": "Define address pools, reservations, lease duration, DNS options, and test renewal commands."
+      },
+      {
+        "name": "Firewall rules",
+        "detail": "Track what ports are required for AD, DNS, DHCP, SSH, HTTP, HTTPS, WinRM, and monitoring."
+      },
+      {
+        "name": "Troubleshooting commands",
+        "detail": "Practise ipconfig, ping, nslookup, Resolve-DnsName, Test-NetConnection, traceroute, ss, and journalctl."
+      }
+    ]
+  },
+  {
+    "id": "documentation",
+    "title": "Documentation",
+    "description": "The portfolio value comes from proving what was built, what broke, and how it was fixed.",
+    "items": [
+      {
+        "name": "README",
+        "detail": "Explain the project purpose, setup steps, folder structure, local run commands, and deployment URL."
+      },
+      {
+        "name": "Architecture diagrams",
+        "detail": "Create simple diagrams for the lab network, domain, automation flow, and deployment flow."
+      },
+      {
+        "name": "Troubleshooting notes",
+        "detail": "Record errors, symptoms, commands used, root cause, fix, and prevention notes."
+      },
+      {
+        "name": "Screenshots",
+        "detail": "Capture important proof points such as domain joins, GPO results, script output, dashboards, and deployments."
+      },
+      {
+        "name": "Runbooks",
+        "detail": "Write repeatable steps for onboarding, leavers, service recovery, deployment, backup, and restore."
+      }
+    ]
+  },
+  {
+    "id": "optional-lab-equipment",
+    "title": "Optional Lab Equipment",
+    "description": "Useful later, but not required to keep building the website or learning the fundamentals.",
+    "items": [
+      {
+        "name": "Dedicated mini PC",
+        "detail": "Can run Proxmox, multiple VMs, Docker stacks, monitoring, and longer-running infrastructure experiments."
+      },
+      {
+        "name": "Managed switch",
+        "detail": "Useful later for VLANs, network segmentation, and more realistic infrastructure practice."
+      },
+      {
+        "name": "NAS or backup disk",
+        "detail": "Useful for VM backups, ISO storage, exported reports, screenshots, and recovery testing."
+      },
+      {
+        "name": "Test laptop",
+        "detail": "Useful later for Autopilot, Intune enrollment, endpoint compliance, and real device troubleshooting."
+      }
+    ]
+  }
+]
