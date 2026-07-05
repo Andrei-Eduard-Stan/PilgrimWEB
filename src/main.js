@@ -18,6 +18,7 @@ const appState = {
   expandedIds: new Set(),
   expandedRoadmapIds: new Set(),
   expansionMode: "single",
+  focusedWorkspaceSection: null,
 };
 
 const dashboard = createDashboardShell();
@@ -73,15 +74,39 @@ function clearContentRegions() {
   }
 }
 
+function getWorkspaceFocusMode() {
+  if (
+    appState.focusedWorkspaceSection === "pilgrimages" &&
+    appState.expandedIds.size > 0
+  ) {
+    return "pilgrimages";
+  }
+
+  if (
+    appState.focusedWorkspaceSection === "roadmap" &&
+    appState.expandedRoadmapIds.size > 0
+  ) {
+    return "roadmap";
+  }
+
+  return "balanced";
+}
+
 function toggleExpandedId(itemId) {
   const isAlreadyExpanded = appState.expandedIds.has(itemId);
 
   if (appState.expansionMode === "single") {
     appState.expandedIds.clear();
+    appState.expandedRoadmapIds.clear();
+  } else if (isAlreadyExpanded) {
+    appState.expandedIds.delete(itemId);
   }
 
   if (!isAlreadyExpanded) {
     appState.expandedIds.add(itemId);
+    appState.focusedWorkspaceSection = "pilgrimages";
+  } else if (appState.expandedIds.size === 0) {
+    appState.focusedWorkspaceSection = null;
   }
 }
 
@@ -90,16 +115,23 @@ function toggleRoadmapPhaseId(phaseId) {
 
   if (appState.expansionMode === "single") {
     appState.expandedRoadmapIds.clear();
+    appState.expandedIds.clear();
+  } else if (isAlreadyExpanded) {
+    appState.expandedRoadmapIds.delete(phaseId);
   }
 
   if (!isAlreadyExpanded) {
     appState.expandedRoadmapIds.add(phaseId);
+    appState.focusedWorkspaceSection = "roadmap";
+  } else if (appState.expandedRoadmapIds.size === 0) {
+    appState.focusedWorkspaceSection = null;
   }
 }
 
 function renderSections({ sections, dataByKey, settings }) {
   clearContentRegions();
   appState.expansionMode = settings.interaction?.expansionMode ?? "single";
+  dashboard.regions.workspace.dataset.focusMode = getWorkspaceFocusMode();
 
   for (const section of sections) {
     const registryEntry = sectionRegistry[section.id];

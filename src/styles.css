@@ -69,6 +69,15 @@ body {
 
 .app-region--workspace {
   grid-template-rows: minmax(0, 1fr) minmax(0, 0.9fr);
+  transition: grid-template-rows 180ms ease;
+}
+
+.app-region--workspace[data-focus-mode="pilgrimages"] {
+  grid-template-rows: minmax(0, 1.45fr) minmax(0, 0.42fr);
+}
+
+.app-region--workspace[data-focus-mode="roadmap"] {
+  grid-template-rows: minmax(0, 0.42fr) minmax(0, 1.45fr);
 }
 
 .app-region--sidebar {
@@ -371,6 +380,27 @@ p {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-card,
+.app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-card {
+  padding: 0.7rem;
+}
+
+.app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-card__header,
+.app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-card__header {
+  min-height: 2.5rem;
+}
+
+.app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-card__subtitle,
+.app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-card__focus {
+  min-height: 0;
+  -webkit-line-clamp: 2;
+}
+
+.app-region--workspace[data-focus-mode="roadmap"] .pilgrimage-card__meta,
+.app-region--workspace[data-focus-mode="pilgrimages"] .roadmap-card__timeframe {
+  margin-block-start: 0.5rem;
 }
 
 .roadmap-card__header {
