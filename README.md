@@ -122,6 +122,42 @@ Preview the production build:
 npm run preview
 ```
 
+## Deployment
+
+The site is configured for GitHub Pages at:
+
+```text
+https://andrei-eduard-stan.github.io/PilgrimWEB/
+```
+
+Because this is a project site under the `PilgrimWEB` repository, `vite.config.js` uses:
+
+```js
+base: "/PilgrimWEB/"
+```
+
+The deployment workflow lives in:
+
+```text
+.github/workflows/deploy-pages.yml
+```
+
+On every push to `main`, GitHub Actions will:
+
+```text
+checkout repository
+install dependencies
+build the Vite site
+upload dist as a Pages artifact
+deploy to GitHub Pages
+```
+
+In GitHub, the repository must have Pages configured to use GitHub Actions:
+
+```text
+Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+```
+
 ## Git Workflow
 
 Check the working tree:
@@ -154,10 +190,8 @@ Push to GitHub:
 git push
 ```
 
-## Roadmap
+## Next Improvements
 
-- Add GitHub Pages deployment
-- Add GitHub Actions build and deploy workflow
 - Add progress tracking
 - Add search or filtering
 - Add saved progress with `localStorage`
