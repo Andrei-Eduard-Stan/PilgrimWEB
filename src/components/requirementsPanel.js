@@ -61,7 +61,7 @@ export function renderRequirementsPanel({ data }) {
   section.setAttribute("aria-labelledby", "requirements-heading");
 
   heading.id = "requirements-heading";
-  heading.textContent = "Requirements";
+  heading.textContent = "Support Requested";
 
   section.append(heading);
 
