@@ -18,8 +18,8 @@ export function createDashboardShell(){
     workspace.className = "app-region app-region--workspace";
     sidebar.className = "app-region app-region--sidebar";
 
-    route.textContent = "~/aes/technical-development/request";
-    title.textContent = "Technical Development Support Request";
+    route.textContent = "~/aes/technical-development/roadmap";
+    title.textContent = "Technical Development Learning Roadmap";
 
     workspace.setAttribute("aria-label", "workspace region");
     sidebar.setAttribute("aria-label", "sidebar region");

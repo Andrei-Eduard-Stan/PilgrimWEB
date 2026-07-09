@@ -1,133 +1,202 @@
 [
   {
-    "id": "step-1",
-    "phase": "Step 1",
-    "timeframe": "Manager discussion",
-    "mainFocus": "Confirm which development areas are most useful to the team and realistic to support.",
+    "id": "phase-1",
+    "phase": "Phase 1",
+    "timeframe": "Now",
+    "mainFocus": "Turn the website into a clear self-learning roadmap and organise the topic backlog.",
     "skills": [
-      "Prioritisation",
-      "Feedback",
-      "Development planning"
+      "Roadmap planning",
+      "Markdown notes",
+      "Git basics",
+      "JSON content editing"
     ],
     "projects": [
-      "Manager review of training, exposure, tooling and automation requests"
+      "Learning roadmap website",
+      "Obsidian notes library"
     ],
-    "outcome": "A clear view of which requests are appropriate, which need adjustment and which should be deferred.",
+    "outcome": "The learning plan is readable, portfolio-ready and easy to update as priorities change.",
     "detailSections": [
       {
-        "title": "Discussion Points",
+        "title": "Study Habits",
         "items": [
-          "Which areas align best with current team priorities",
-          "Which requests need approval from other teams",
-          "Which items should be handled formally and which can happen organically"
+          "Keep topics short and easy to skim",
+          "Use Git commits to save each content update",
+          "Move detailed notes into Markdown files",
+          "Keep the website as the high-level overview"
         ]
       },
       {
-        "title": "Expected Output",
+        "title": "Evidence To Build",
         "items": [
-          "Agreed priority order",
-          "Clear next actions",
-          "Any policy or approval constraints identified"
+          "Clean roadmap website",
+          "README explaining the project",
+          "Structured notes folder",
+          "GitHub commit history"
         ]
       }
     ]
   },
   {
-    "id": "step-2",
-    "phase": "Step 2",
-    "timeframe": "Short term",
-    "mainFocus": "Confirm suitable tooling, source control guidance and any available training or exam support.",
+    "id": "phase-2",
+    "phase": "Phase 2",
+    "timeframe": "0-1 month",
+    "mainFocus": "Build strong foundations in tooling, documentation, version control and scripting workflow.",
     "skills": [
-      "Tooling",
-      "Source control",
-      "Training route"
+      "VS Code",
+      "PowerShell 7",
+      "Python basics",
+      "Git and GitHub",
+      "Obsidian",
+      "Node.js"
     ],
     "projects": [
-      "Development environment and course support"
+      "Personal automation workspace",
+      "Git workflow notes",
+      "Small script examples"
     ],
-    "outcome": "A safe and approved setup for learning, documentation and small automation prototypes.",
+    "outcome": "Comfortable editing code, writing notes, using Git and running small scripts locally.",
     "detailSections": [
       {
-        "title": "Actions",
+        "title": "Learning Topics",
         "items": [
-          "Confirm approved tooling for scripting and documentation",
-          "Confirm whether GitHub or an internal source control platform should be used",
-          "Clarify whether certification exams, course costs or both can be supported"
+          "Git status, add, commit, diff, log and push",
+          "PowerShell objects, functions and pipelines",
+          "Python files, functions and packages",
+          "Markdown documentation habits",
+          "Basic GitHub Actions concepts"
         ]
       },
       {
-        "title": "Expected Output",
+        "title": "Practice Deliverables",
         "items": [
-          "Approved tool list",
-          "Training decision for AZ-104 and MS-102",
-          "Source control and portfolio guidance"
+          "PowerShell script folder",
+          "Python script folder",
+          "Reusable README template",
+          "Basic GitHub Actions validation workflow"
         ]
       }
     ]
   },
   {
-    "id": "step-3",
-    "phase": "Step 3",
+    "id": "phase-3",
+    "phase": "Phase 3",
     "timeframe": "1-3 months",
-    "mainFocus": "Begin small, supervised exposure opportunities and identify a realistic first automation task.",
+    "mainFocus": "Study Microsoft cloud and administration topics through AZ-104 and MS-102 style learning paths.",
     "skills": [
-      "Infrastructure exposure",
-      "Documentation",
+      "AZ-104 topics",
+      "MS-102 topics",
+      "Entra ID",
+      "Exchange Online",
+      "Microsoft Graph",
+      "Azure networking"
+    ],
+    "projects": [
+      "Cloud admin study portfolio",
+      "Microsoft 365 admin notes",
+      "Graph reporting prototype"
+    ],
+    "outcome": "A structured understanding of Microsoft cloud administration and where it connects to day-to-day IT operations.",
+    "detailSections": [
+      {
+        "title": "Learning Topics",
+        "items": [
+          "Azure identity, governance, storage, networking and monitoring",
+          "Microsoft 365 users, groups, roles and admin centres",
+          "Exchange Online, Teams and SharePoint administration basics",
+          "Graph API authentication and reporting concepts"
+        ]
+      },
+      {
+        "title": "Practice Deliverables",
+        "items": [
+          "Exam objective checklist",
+          "Admin centre notes",
+          "Simple Graph report example",
+          "Identity and access diagram"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase-4",
+    "phase": "Phase 4",
+    "timeframe": "3-6 months",
+    "mainFocus": "Build practical infrastructure and automation evidence in a safe lab or isolated learning environment.",
+    "skills": [
+      "Windows Server",
+      "Active Directory",
+      "DNS",
+      "DHCP",
+      "Group Policy",
       "PowerShell automation"
     ],
     "projects": [
-      "Shadowing and first supervised automation task"
+      "Personal infrastructure lab",
+      "Operations runbook library",
+      "User administration scripts"
     ],
-    "outcome": "Practical learning begins in a controlled way while still supporting Service Desk responsibilities.",
+    "outcome": "Able to explain and demonstrate basic infrastructure workflows with documentation and small automation examples.",
     "detailSections": [
       {
-        "title": "Actions",
+        "title": "Learning Topics",
         "items": [
-          "Sit in on relevant meetings or planned work where appropriate",
-          "Assist with a lower-risk task or documentation item",
-          "Select one automation idea that is useful, small and reviewable"
+          "Domain controller and client basics",
+          "DNS and DHCP behaviour",
+          "OU and Group Policy design",
+          "User lifecycle tasks",
+          "Runbook and change documentation"
         ]
       },
       {
-        "title": "Expected Output",
+        "title": "Practice Deliverables",
         "items": [
-          "One small piece of useful documentation or automation",
-          "Feedback from an engineer or manager",
-          "A better understanding of infrastructure or security processes"
+          "Lab network diagram",
+          "Build notes",
+          "Onboarding script prototype",
+          "Leaver checklist or report",
+          "Troubleshooting records"
         ]
       }
     ]
   },
   {
-    "id": "step-4",
-    "phase": "Step 4",
-    "timeframe": "Quarterly review",
-    "mainFocus": "Review progress, business value and whether the next development step should continue, change or pause.",
+    "id": "phase-5",
+    "phase": "Phase 5",
+    "timeframe": "6 months+",
+    "mainFocus": "Explore larger automation, dashboard, deployment and emerging technology ideas after the foundations are stable.",
     "skills": [
-      "Review",
-      "Evidence",
-      "Continuous improvement"
+      "Power Automate",
+      "CI/CD",
+      "Docker",
+      "Reporting dashboards",
+      "AI-assisted workflows",
+      "Operational tooling"
     ],
     "projects": [
-      "Progress review and next development plan"
+      "Automation ideas backlog",
+      "Infrastructure dashboard",
+      "Documentation automation prototype"
     ],
-    "outcome": "A simple evidence-based development plan that remains aligned with team priorities.",
+    "outcome": "A portfolio of realistic improvement ideas, prototypes and lessons learned that can be discussed and refined over time.",
     "detailSections": [
       {
-        "title": "Review Evidence",
+        "title": "Learning Topics",
         "items": [
-          "Completed learning or certification progress",
-          "Documentation produced",
-          "Automation prototypes or scripts reviewed",
-          "Exposure activities completed"
+          "Power Automate and approval-style workflows",
+          "CI/CD validation with GitHub Actions",
+          "Docker for isolated services",
+          "Internal dashboards and reporting",
+          "Responsible use of AI-assisted development"
         ]
       },
       {
-        "title": "Next Decision",
+        "title": "Practice Deliverables",
         "items": [
-          "Continue with the current plan",
-          "Shift focus to a higher-value area",
-          "Identify a new supervised task or learning objective"
+          "Prioritised automation backlog",
+          "Prototype scripts or dashboards",
+          "CI/CD notes",
+          "Before and after workflow documentation",
+          "Final portfolio summary"
         ]
       }
     ]

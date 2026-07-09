@@ -53,7 +53,7 @@ function createLearningPathBlock(learningPath) {
   const title = document.createElement("h4");
 
   block.className = "pilgrimage-card__detail-block";
-  title.textContent = "Requested Support";
+  title.textContent = "Learning Plan";
 
   block.append(title);
 
@@ -103,7 +103,7 @@ function createProjectBlock(project) {
   const description = document.createElement("p");
 
   block.className = "pilgrimage-card__detail-block";
-  title.textContent = "Request Summary";
+  title.textContent = "Project Plan";
   name.textContent = getText(project.name, "Project");
   description.textContent = getText(project.description, "No project description provided.");
 
@@ -197,7 +197,7 @@ export function renderPilgrimageRail({ data, state = {}, callbacks = {} }) {
   section.setAttribute("aria-labelledby", "pilgrimages-heading");
 
   heading.id = "pilgrimages-heading";
-  heading.textContent = "Development Request Areas";
+  heading.textContent = "Learning Topics";
 
   track.className = "pilgrimage-rail__track";
 

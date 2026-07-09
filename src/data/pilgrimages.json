@@ -1,205 +1,244 @@
 [
   {
-    "id": "courses-certifications",
-    "title": "Courses and Certifications",
-    "icon": "graduation-cap",
-    "subtitle": "Request support for focused Microsoft training that aligns with infrastructure, cloud and Microsoft 365 administration.",
-    "difficulty": "Manager discussion",
-    "estimatedTime": "July 2026",
+    "id": "cloud-microsoft-admin",
+    "title": "Cloud and Microsoft 365 Admin",
+    "icon": "cloud",
+    "subtitle": "Self-study track for Azure administration, Microsoft 365 administration, identity, messaging, collaboration and Graph automation.",
+    "difficulty": "Foundation to intermediate",
+    "estimatedTime": "0-3 months",
     "techStack": [
       "Azure administration",
       "Microsoft 365 administration",
-      "Identity and access",
-      "Networking and storage",
-      "Hybrid infrastructure",
+      "Entra ID",
+      "Exchange Online",
+      "Teams",
+      "SharePoint",
+      "Azure networking",
+      "Azure storage",
       "Microsoft Graph"
     ],
     "learningPath": [
       {
-        "phase": "Requested Courses",
+        "phase": "Certification Topics",
         "items": [
-          "Microsoft Azure Administrator AZ-104",
-          "Microsoft 365 Administrator MS-102"
+          "AZ-104 Azure Administrator",
+          "MS-102 Microsoft 365 Administrator",
+          "Identity and access management",
+          "Cloud networking and storage",
+          "Hybrid infrastructure concepts"
         ]
       },
       {
-        "phase": "Clarification Needed",
+        "phase": "Practice Ideas",
         "items": [
-          "Whether exam fees can be supported",
-          "Whether course enrolment or training costs can be supported",
-          "Which provider or learning route is preferred"
+          "Build short notes for each exam objective",
+          "Create diagrams for identity, access and admin workflows",
+          "Use Microsoft Learn as the main study path",
+          "Create small Graph API reporting examples"
         ]
       }
     ],
     "project": {
-      "name": "Training Support Request",
-      "description": "Build practical knowledge that can be applied to current IT support work and future infrastructure responsibilities.",
-      "businessValue": [
-        "Improves Microsoft 365 and Azure administration capability",
-        "Supports infrastructure, identity and automation development objectives",
-        "Creates a structured learning path after appraisal discussions"
+      "name": "Cloud Admin Study Portfolio",
+      "description": "A structured set of notes, diagrams and small examples that prove progress through Azure and Microsoft 365 administration topics.",
+      "studyTopics": [
+        "Azure users, groups and role assignments",
+        "Microsoft 365 admin centres",
+        "Exchange Online, Teams and SharePoint administration",
+        "Graph API basics",
+        "Governance, security and compliance concepts"
       ],
-      "managerAsk": [
-        "Confirm whether these certifications are appropriate priorities",
-        "Confirm what training or exam support may be available"
+      "evidenceToBuild": [
+        "Exam objective checklist",
+        "Architecture diagrams",
+        "Admin workflow notes",
+        "Small reporting scripts",
+        "Troubleshooting examples"
       ]
     }
   },
   {
-    "id": "practical-exposure",
-    "title": "Practical Exposure",
-    "icon": "users",
-    "subtitle": "Request gradual exposure to infrastructure, security and operational engineering work through observation and guided participation.",
-    "difficulty": "Guided",
+    "id": "operations-security-awareness",
+    "title": "Infrastructure and Security Operations",
+    "icon": "activity",
+    "subtitle": "Learning track for understanding infrastructure work, change processes, maintenance, security controls and operational runbooks.",
+    "difficulty": "Guided self-study",
     "estimatedTime": "Ongoing",
     "techStack": [
       "Infrastructure operations",
       "Security operations",
-      "Change implementation",
-      "Maintenance activities",
+      "Change management",
+      "Maintenance windows",
+      "Access reviews",
       "Runbooks",
-      "Testing and validation"
+      "Testing and validation",
+      "Incident response concepts"
     ],
     "learningPath": [
       {
-        "phase": "Observation",
+        "phase": "Core Topics",
         "items": [
-          "Sit in on relevant meetings where appropriate",
-          "Observe planned maintenance or project work",
-          "Receive walkthroughs of infrastructure processes and decisions"
+          "How planned infrastructure changes are prepared and validated",
+          "How maintenance activities are documented",
+          "How access reviews and security checks are handled",
+          "How operational decisions are recorded in runbooks"
         ]
       },
       {
-        "phase": "Guided Participation",
+        "phase": "Practice Ideas",
         "items": [
-          "Assist with lower-risk infrastructure tasks",
-          "Contribute to documentation and runbooks",
-          "Support testing and validation activities",
-          "Receive feedback from engineers on completed work"
+          "Write sample change plans for lab work",
+          "Create runbooks for repeatable lab tasks",
+          "Document validation checks before and after changes",
+          "Build a glossary of infrastructure and security terms"
         ]
       }
     ],
     "project": {
-      "name": "Supervised Exposure Plan",
-      "description": "Broaden technical capability while continuing to perform Service Desk responsibilities.",
-      "businessValue": [
-        "Builds internal capability gradually and safely",
-        "Improves understanding of infrastructure and security processes",
-        "Creates a route for supervised contribution to lower-risk tasks"
+      "name": "Operations Runbook Library",
+      "description": "A personal documentation library that explains common infrastructure and security operations in clear, repeatable steps.",
+      "runbooks": [
+        "Pre-change checklist",
+        "Post-change validation checklist",
+        "Service restart procedure",
+        "Access review notes",
+        "Incident notes template"
       ],
-      "managerAsk": [
-        "Identify suitable shadowing or guided participation opportunities",
-        "Suggest small tasks that would be useful to the team"
+      "evidenceToBuild": [
+        "Markdown runbooks",
+        "Process diagrams",
+        "Validation checklists",
+        "Troubleshooting notes"
       ]
     }
   },
   {
-    "id": "development-tooling",
-    "title": "Development Environment",
+    "id": "tooling-scripting-workflow",
+    "title": "Tooling, Scripting and Workflow",
     "icon": "terminal",
-    "subtitle": "Request approved tooling for scripting, automation, documentation, proof-of-concepts and safe learning environments.",
-    "difficulty": "Access request",
-    "estimatedTime": "Short term",
+    "subtitle": "Core tooling for learning, documenting, scripting, version control, lightweight dashboards and repeatable automation work.",
+    "difficulty": "Foundation",
+    "estimatedTime": "0-2 months",
     "techStack": [
       "VS Code",
       "PowerShell 7",
       "Python",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Node.js",
       "Git",
       "Git Bash",
-      "Node.js",
-      "Microsoft 365 Developer Subscription",
+      "GitHub",
+      "GitHub Actions",
       "Obsidian"
     ],
     "learningPath": [
       {
-        "phase": "Core Tools",
+        "phase": "Tooling Foundations",
         "items": [
-          "VS Code for scripts, documentation and lightweight dashboards",
-          "PowerShell 7 for Windows, Microsoft 365 and infrastructure automation",
-          "Python for reporting, API integrations and proof-of-concept tools",
-          "Git and Git Bash for version control and change tracking"
+          "Use VS Code as the main editor",
+          "Use Git and Git Bash for version control",
+          "Use Markdown for notes and documentation",
+          "Use Node.js and Vite for this roadmap website"
         ]
       },
       {
-        "phase": "Optional Tools",
+        "phase": "Scripting Foundations",
         "items": [
-          "GitHub or approved internal source control guidance",
-          "GitHub Actions or equivalent CI/CD platform",
-          "Docker Desktop and WSL if appropriate",
-          "AI tooling for supervised learning, debugging and documentation"
+          "PowerShell variables, functions, objects and pipelines",
+          "Python files, functions, packages and virtual environments",
+          "JSON and CSV data handling",
+          "Logging, error handling and clear script output"
         ]
       }
     ],
     "project": {
-      "name": "Approved Development Environment",
-      "description": "Create a safe and consistent environment for learning, automation prototypes and documentation work.",
-      "businessValue": [
-        "Supports practical scripting and automation development",
-        "Improves documentation quality and repeatability",
-        "Enables proof-of-concept work without affecting production systems"
+      "name": "Personal Automation Workspace",
+      "description": "A clean folder structure for scripts, notes, dashboards and experiments that can grow into a portfolio.",
+      "folders": [
+        "powershell/",
+        "python/",
+        "docs/",
+        "dashboards/",
+        "examples/",
+        "runbooks/"
       ],
-      "managerAsk": [
-        "Confirm which tools are approved for company use",
-        "Confirm whether personal learning projects in GitHub are acceptable when separated from company code and data"
+      "evidenceToBuild": [
+        "Small PowerShell scripts",
+        "Small Python scripts",
+        "Git commit history",
+        "README files",
+        "GitHub Actions checks"
       ]
     }
   },
   {
-    "id": "homelab-resources",
-    "title": "Home Lab Resources",
+    "id": "homelab-practice",
+    "title": "Home Lab and Practice Environment",
     "icon": "server",
-    "subtitle": "Explore whether approved surplus equipment or cloud-based development environments can support practical learning outside production.",
-    "difficulty": "Policy dependent",
-    "estimatedTime": "If available",
+    "subtitle": "Practice environment for Windows infrastructure, Microsoft 365 concepts, scripting, automation, containers and documentation.",
+    "difficulty": "Practical",
+    "estimatedTime": "Ongoing",
     "techStack": [
-      "Cloud development environment",
-      "Mini PC",
-      "Small form factor desktop",
-      "Older laptop",
-      "RAM",
-      "SSD or HDD",
-      "Network switch",
-      "Virtualisation"
+      "Windows Server",
+      "Active Directory",
+      "Group Policy",
+      "DNS",
+      "DHCP",
+      "PowerShell",
+      "Python",
+      "Hyper-V",
+      "Docker",
+      "GitHub Actions",
+      "Microsoft 365 developer tenant"
     ],
     "learningPath": [
       {
-        "phase": "Primary Approach",
+        "phase": "Lab Foundations",
         "items": [
-          "Use approved cloud-based development environments where possible",
-          "Keep learning and proof-of-concepts separate from production systems",
-          "Follow asset management, security, data destruction and disposal policies"
+          "Plan a safe isolated lab network",
+          "Build Windows Server and client practice machines",
+          "Document IP addressing, DNS and DHCP decisions",
+          "Use snapshots before major changes"
         ]
       },
       {
-        "phase": "Complementary Home Lab",
+        "phase": "Lab Expansion",
         "items": [
-          "Build Windows Server and Active Directory practice environments",
-          "Test PowerShell and Python automation safely",
-          "Experiment with Git, CI/CD, Docker and documentation workflows"
+          "Create Active Directory users, groups and OUs",
+          "Test Group Policy scenarios",
+          "Add automation scripts for common tasks",
+          "Add Docker services or lightweight dashboards later"
         ]
       }
     ],
     "project": {
-      "name": "Personal Learning Lab",
-      "description": "Use approved lab resources to continue infrastructure learning outside work and prepare proof-of-concepts for discussion.",
-      "businessValue": [
-        "Supports independent skills development",
-        "Reduces need to experiment in production or shared environments",
-        "Allows learning to continue while internal access or training is arranged"
+      "name": "Personal Infrastructure Lab",
+      "description": "A safe place to practise infrastructure concepts and produce evidence without touching production systems.",
+      "labIdeas": [
+        "Domain controller and test client",
+        "DNS and DHCP practice",
+        "User onboarding script",
+        "Leaver workflow script",
+        "Simple monitoring or dashboard page"
       ],
-      "managerAsk": [
-        "Confirm whether there is a process for surplus or decommissioned equipment",
-        "Confirm whether cloud-based development environments should be used instead"
+      "evidenceToBuild": [
+        "Network diagram",
+        "Build notes",
+        "Screenshots",
+        "Troubleshooting records",
+        "Recovery steps"
       ]
     }
   },
   {
-    "id": "automation-improvements",
-    "title": "Automation and Improvements",
+    "id": "automation-project-ideas",
+    "title": "Automation Project Ideas",
     "icon": "workflow",
-    "subtitle": "Share early automation ideas for discussion, prioritisation and guidance rather than presenting them as completed proposals.",
-    "difficulty": "Discussion",
-    "estimatedTime": "Prioritise first",
+    "subtitle": "Backlog of possible automation and improvement projects to explore as skills improve.",
+    "difficulty": "Idea backlog",
+    "estimatedTime": "Prioritise over time",
     "techStack": [
       "PowerShell",
       "Power Automate",
@@ -208,42 +247,49 @@
       "Active Directory",
       "Entra ID",
       "Exchange Online",
-      "Reporting"
+      "Windows deployment",
+      "Reporting",
+      "AI-assisted workflows"
     ],
     "learningPath": [
       {
-        "phase": "Initial Ideas",
+        "phase": "Starter Ideas",
         "items": [
-          "Leaver process automation",
-          "Starter process automation",
-          "Windows deployment automation",
-          "PowerShell reporting",
-          "Documentation automation"
+          "Leaver process checklist and reporting",
+          "Starter process data capture and onboarding checklist",
+          "Group membership reporting",
+          "Licence reporting",
+          "Documentation generation"
         ]
       },
       {
-        "phase": "Future Areas",
+        "phase": "Later Ideas",
         "items": [
-          "Infrastructure health dashboards",
+          "Windows deployment automation",
+          "Infrastructure health dashboard",
           "Security reporting",
           "Asset management improvements",
-          "AI-assisted operational workflows",
-          "Internal operational tooling"
+          "AI-assisted operational workflow prototype"
         ]
       }
     ],
     "project": {
-      "name": "Automation Opportunity Review",
-      "description": "Discuss where automation could reduce repetitive work while keeping approvals, validation and oversight in place.",
-      "businessValue": [
-        "Reduces repetitive manual administration where appropriate",
-        "Improves consistency and reporting",
-        "Creates low-risk opportunities to contribute automation under guidance"
+      "name": "Automation Ideas Backlog",
+      "description": "A prioritised list of small automation projects, each with a problem statement, data needed, risk level and expected output.",
+      "projectTemplates": [
+        "Problem being solved",
+        "Manual steps today",
+        "Data required",
+        "Automation idea",
+        "Review and safety checks",
+        "Expected output"
       ],
-      "managerAsk": [
-        "Advise which ideas align with team priorities",
-        "Identify a realistic first automation task",
-        "Confirm required controls, approvals and review steps"
+      "evidenceToBuild": [
+        "Backlog board",
+        "Prototype scripts",
+        "Before and after notes",
+        "Screenshots or sample output",
+        "Lessons learned"
       ]
     }
   }

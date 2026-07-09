@@ -1,104 +1,108 @@
 [
   {
-    "id": "training-support",
-    "title": "Training Support",
-    "description": "Courses and certifications that support infrastructure, cloud and Microsoft 365 administration objectives.",
+    "id": "learning-tracks",
+    "title": "Learning Tracks",
+    "description": "Main study areas included in the roadmap.",
     "items": [
       {
         "name": "AZ-104 Azure Administrator",
-        "detail": "Confirm whether Liontrust can support the exam fee, course enrolment or both."
+        "detail": "Azure identity, governance, networking, storage, compute and monitoring."
       },
       {
         "name": "MS-102 Microsoft 365 Administrator",
-        "detail": "Confirm whether this is a suitable priority for Microsoft 365, Exchange Online, Teams, SharePoint, Entra ID and Graph learning."
+        "detail": "Microsoft 365 administration, Entra ID, Exchange Online, Teams, SharePoint and security concepts."
       },
       {
-        "name": "Provider guidance",
-        "detail": "Confirm whether Microsoft Learn, an internal route or a paid provider is preferred."
+        "name": "Infrastructure operations",
+        "detail": "Change planning, maintenance, runbooks, validation, access reviews and troubleshooting."
       }
     ]
   },
   {
-    "id": "exposure-support",
-    "title": "Exposure Support",
-    "description": "Practical learning through observation, mentoring and smaller supervised tasks.",
+    "id": "toolkit",
+    "title": "Toolkit",
+    "description": "Tools to learn and use while building the roadmap and practice projects.",
     "items": [
       {
-        "name": "Infrastructure exposure",
-        "detail": "Observe planned work, process walkthroughs, maintenance activities and change implementation where appropriate."
+        "name": "VS Code and Obsidian",
+        "detail": "Primary tools for code, Markdown notes, documentation and project write-ups."
       },
       {
-        "name": "Security exposure",
-        "detail": "Observe security processes, access reviews, investigations or reporting activities where suitable."
+        "name": "PowerShell 7 and Python",
+        "detail": "Main scripting languages for automation, reporting, API work and operational tooling."
       },
       {
-        "name": "Guided participation",
-        "detail": "Assist with lower-risk tasks, documentation, runbooks, testing and validation under supervision."
+        "name": "Git, GitHub and GitHub Actions",
+        "detail": "Version control, portfolio history, automated checks and deployment practice."
+      },
+      {
+        "name": "Node.js and Vite",
+        "detail": "Frontend tooling used to build and deploy this roadmap website."
       }
     ]
   },
   {
-    "id": "tooling-access",
-    "title": "Tooling and Access",
-    "description": "Approved tools for scripting, documentation, automation projects and safe proof-of-concept work.",
+    "id": "practice-environments",
+    "title": "Practice Environments",
+    "description": "Safe places to learn without affecting production systems.",
     "items": [
       {
-        "name": "Development tools",
-        "detail": "VS Code, PowerShell 7, Python, Node.js, Git, Git Bash and Windows Terminal."
+        "name": "Cloud development environment",
+        "detail": "Useful for Microsoft 365, Azure, Graph and proof-of-concept learning where available."
       },
       {
-        "name": "Source control guidance",
-        "detail": "Confirm whether GitHub is acceptable for personal learning projects or whether an internal source control platform should be used."
+        "name": "Personal home lab",
+        "detail": "Useful for Windows Server, Active Directory, DNS, DHCP, PowerShell, Docker and documentation practice."
       },
       {
-        "name": "Microsoft 365 development tenant",
-        "detail": "Useful for safely testing Graph, Entra ID, Exchange, SharePoint, Teams, Intune and Power Platform concepts away from production."
-      },
-      {
-        "name": "Documentation tools",
-        "detail": "Obsidian or Markdown-based documentation workflow for notes, testing records and project write-ups."
+        "name": "Microsoft 365 developer tenant",
+        "detail": "Useful for safe Microsoft 365, Entra ID, Graph, Exchange, SharePoint, Teams and Intune experiments."
       }
     ]
   },
   {
-    "id": "lab-resources",
-    "title": "Lab Resources",
-    "description": "Safe environments for practical learning without affecting production systems.",
+    "id": "project-backlog",
+    "title": "Project Backlog",
+    "description": "Ideas to turn learning into visible portfolio evidence.",
     "items": [
       {
-        "name": "Approved cloud development environments",
-        "detail": "Preferred primary approach where available and appropriate."
-      },
-      {
-        "name": "Surplus equipment process",
-        "detail": "Confirm whether decommissioned or surplus equipment can be loaned or reused under an approved process."
-      },
-      {
-        "name": "Potential equipment",
-        "detail": "Mini PCs, small desktops, older laptops, RAM, SSDs or HDDs, switches, NICs, monitors and network cables."
-      }
-    ]
-  },
-  {
-    "id": "automation-discussion",
-    "title": "Automation Discussion",
-    "description": "Initial ideas to review against team priorities, risk and usefulness.",
-    "items": [
-      {
-        "name": "Leaver process automation",
-        "detail": "Explore reporting, account disablement, group removal, licence validation and completion checklists where appropriate."
-      },
-      {
-        "name": "Starter process automation",
-        "detail": "Explore mailbox monitoring, data extraction, account creation, default group assignment and onboarding checklists."
+        "name": "Starter and leaver automation",
+        "detail": "Document the workflow, then prototype small reporting, checklist or account-lifecycle scripts."
       },
       {
         "name": "Windows deployment automation",
-        "detail": "Explore unattended installation, device naming, partitioning and consistent workstation provisioning."
+        "detail": "Study unattended setup, naming conventions, build consistency and deployment documentation."
       },
       {
-        "name": "Future ideas",
-        "detail": "Health dashboards, Microsoft Graph automation, security reporting, asset improvements, documentation generation and AI-assisted workflows."
+        "name": "Infrastructure dashboard",
+        "detail": "Create a lightweight dashboard for lab status, reports or automation output."
+      },
+      {
+        "name": "Documentation automation",
+        "detail": "Generate notes, checklists or reports from structured data such as JSON, CSV or Markdown."
+      }
+    ]
+  },
+  {
+    "id": "evidence",
+    "title": "Evidence To Build",
+    "description": "Outputs that make the roadmap useful and presentable.",
+    "items": [
+      {
+        "name": "README files",
+        "detail": "Explain each project, what it does, how to run it and what was learned."
+      },
+      {
+        "name": "Diagrams and screenshots",
+        "detail": "Show architecture, workflows, lab builds, command output and successful tests."
+      },
+      {
+        "name": "Runbooks and troubleshooting notes",
+        "detail": "Record repeatable steps, failures, fixes and validation checks."
+      },
+      {
+        "name": "Small working prototypes",
+        "detail": "Prefer simple finished examples over large unfinished ideas."
       }
     ]
   }

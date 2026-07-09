@@ -119,7 +119,7 @@ export function renderRoadmapRail({ data, state = {}, callbacks = {} }) {
   section.setAttribute("aria-labelledby", "roadmap-heading");
 
   heading.id = "roadmap-heading";
-  heading.textContent = "Proposed Next Steps";
+  heading.textContent = "Roadmap Phases";
 
   track.className = "roadmap-rail__track";
 
